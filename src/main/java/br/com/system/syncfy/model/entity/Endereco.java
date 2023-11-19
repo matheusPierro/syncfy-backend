@@ -1,5 +1,6 @@
 package br.com.system.syncfy.model.entity;
 
+import br.com.system.syncfy.model.dto.DadosEndereco;
 import jakarta.persistence.*;
 
 @Table(name = "ENDERECO")
@@ -34,6 +35,14 @@ public class Endereco {
         this.numero = numero;
         this.complemento = complemento;
         this.bairro = bairro;
+    }
+
+    public Endereco(DadosEndereco dadosEndereco) {
+        this.cep = dadosEndereco.cep();
+        this.logradouro = dadosEndereco.logradouro();
+        this.numero = dadosEndereco.numero();
+        this.complemento = dadosEndereco.complemento();
+        this.bairro = new Bairro(dadosEndereco.bairro());
     }
 
     public Long getCod() {

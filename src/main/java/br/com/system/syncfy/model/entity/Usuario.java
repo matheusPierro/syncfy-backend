@@ -1,5 +1,6 @@
 package br.com.system.syncfy.model.entity;
 
+import br.com.system.syncfy.model.dto.DadosUsuario;
 import jakarta.persistence.*;
 
 @Table(name = "USUARIO")
@@ -18,6 +19,11 @@ public class Usuario {
         this.cod = cod;
         this.usuario = usuario;
         this.senha = senha;
+    }
+
+    public Usuario(DadosUsuario dadosUsuario) {
+        this.usuario = dadosUsuario.usuario();
+        this.senha = dadosUsuario.senha();
     }
 
     public Long getCod() {

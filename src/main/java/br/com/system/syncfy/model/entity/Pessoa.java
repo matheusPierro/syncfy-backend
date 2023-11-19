@@ -1,5 +1,7 @@
 package br.com.system.syncfy.model.entity;
 
+import br.com.system.syncfy.model.dto.DadosEndereco;
+import br.com.system.syncfy.model.dto.DadosUsuario;
 import jakarta.persistence.*;
 
 @Table(name = "PESSOA")
@@ -8,7 +10,8 @@ import jakarta.persistence.*;
 @DiscriminatorColumn(name = "TIPO")
 public class Pessoa {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "COD_PESSOA")
     private Long cod;
 
@@ -34,6 +37,20 @@ public class Pessoa {
 
     public Pessoa(Long cod, String nome, boolean softDelete, String email, Endereco endereco, Usuario usuario) {
         this.cod = cod;
+        this.nome = nome;
+        this.softDelete = softDelete;
+        this.email = email;
+        this.endereco = endereco;
+        this.usuario = usuario;
+    }
+
+    public Pessoa(
+            String nome,
+            boolean softDelete,
+            String email,
+            Endereco endereco,
+            Usuario usuario
+    ) {
         this.nome = nome;
         this.softDelete = softDelete;
         this.email = email;

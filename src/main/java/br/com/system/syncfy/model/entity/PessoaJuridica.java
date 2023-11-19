@@ -1,13 +1,12 @@
 package br.com.system.syncfy.model.entity;
 
-import br.com.system.syncfy.model.dto.CadastroPessoaJuridica;
+import br.com.system.syncfy.model.dto.DadosCadastroPessoaJuridica;
 import jakarta.persistence.*;
-import lombok.Data;
 
 @Table(name = "PESSOA_JURIDICA")//, @UniqueConstraint()
 @Entity(name = "PessoaJuridica")
 @DiscriminatorValue(value = "PJ")
-public class PessoaJuridica extends Pessoa{
+public class PessoaJuridica extends Pessoa {
     private String cnpj;
 
     // FKS
@@ -24,9 +23,16 @@ public class PessoaJuridica extends Pessoa{
         this.segmento = segmento;
     }
 
-    public PessoaJuridica(CadastroPessoaJuridica dados) {
+    public PessoaJuridica(DadosCadastroPessoaJuridica dados) {
+        super(
+                dados.nome(),
+                false,
+                dados.email(),
+                new Endereco(dados.endereco()),
+                new Usuario(dados.usuario())
+        );
         this.cnpj = dados.cnpj();
-        this.segmento = dados.segmento();
+        this.segmento = new Segmento(dados.segmento());
     }
 
     public String getCnpj() {

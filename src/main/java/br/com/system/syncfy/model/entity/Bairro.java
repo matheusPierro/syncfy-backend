@@ -1,5 +1,6 @@
 package br.com.system.syncfy.model.entity;
 
+import br.com.system.syncfy.model.dto.DadosBairro;
 import jakarta.persistence.*;
 
 @Table(name = "BAIRRO")
@@ -28,6 +29,10 @@ public class Bairro {
         this.cod = cod;
         this.bairro = bairro;
         this.cidade = cidade;
+    }
+
+    public Bairro(DadosBairro  dadosBairro) {
+        this.bairro = dadosBairro.bairro();
     }
 
     public Long getCod() {

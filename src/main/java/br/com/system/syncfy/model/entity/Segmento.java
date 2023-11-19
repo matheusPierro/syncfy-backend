@@ -1,5 +1,6 @@
 package br.com.system.syncfy.model.entity;
 
+import br.com.system.syncfy.model.dto.DadosSegmento;
 import jakarta.persistence.*;
 
 @Table(name = "SEGMENTO")
@@ -17,6 +18,10 @@ public class Segmento {
     public Segmento(Long cod, String segmento) {
         this.cod = cod;
         this.segmento = segmento;
+    }
+
+    public Segmento(DadosSegmento dadosSegmento) {
+        this.segmento = dadosSegmento.segmento();
     }
 
     public Long getCod() {

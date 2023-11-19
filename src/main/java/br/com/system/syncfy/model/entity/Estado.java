@@ -1,5 +1,7 @@
 package br.com.system.syncfy.model.entity;
 
+import br.com.system.syncfy.model.dto.DadosBairro;
+import br.com.system.syncfy.model.dto.DadosEstado;
 import jakarta.persistence.*;
 
 @Table(name = "ESTADO")
@@ -28,6 +30,10 @@ public class Estado {
         this.cod = cod;
         this.estado = estado;
         this.pais = pais;
+    }
+
+    public Estado(DadosEstado dadosEstado) {
+        this.estado = dadosEstado.estado();
     }
 
     public Long getCod() {
