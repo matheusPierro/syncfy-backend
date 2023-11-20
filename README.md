@@ -64,13 +64,19 @@ O projeto Syncfy ilustra como a inovação tecnológica pode simplificar process
 <a id="_fluxograma_"></a>
 # Fluxograma da Arquitetura do Sistema
 
+<img src="./documentacao/Enterprise%20Application%20Development/FluxogramaArquiteturaDoSistema.png" title="Fluxograma da Arquitetura do Sistema">
+
+### Modelo Lógico do Banco de Dados do Sistema
+<img src="./documentacao/Enterprise%20Application%20Development/MLSyncfy.jpeg" title="Fluxograma da Arquitetura do Sistema">
+
+### Modelo Relacional do Banco de Dados do Sistema
+<img src="./documentacao/Enterprise%20Application%20Development/MR_Syncfy.jpeg" title="Fluxograma da Arquitetura do Sistema">
+
+
 <a id="_Diagrama_de_Classes"></a>
 # Diagrama de Classes
 
-<img src="documentacao/diagrama.png" title="Diagrama de Classes">
-
 <a id="_Rodar_Aplicacao"></a>
-
 # Como rodar a aplicação
 Será necessário seguir os passos abaixo:
 
