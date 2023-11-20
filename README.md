@@ -128,4 +128,4 @@ p.s. é necessário ter a jdk versão 17 instalada em sua máquina ou podem acon
 
 ## Para mais detalhes assista ao nosso Picth:
 
-https://youtu.be/iyOTlpfnWXU
+[![Alt text](https://img.youtube.com/vi/iyOTlpfnWXU/0.jpg)](https://www.youtube.com/watch?v=iyOTlpfnWXU)
