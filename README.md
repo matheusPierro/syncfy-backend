@@ -1,10 +1,10 @@
-# Syncfy - Plataforma de Solicitação de Cotações
+# Syncfy - Plataforma de Solicitação e Cotações
 
 ## Apresentação da Equipe
 
 A equipe do Syncfy é composta por experientes no desenvolvimento de soluções B2B. Nossos membros incluem:
 
-- Matheus Ramos de Pierro - Arquiteto e Desenvolvedor do Sistema Backend - https://github.com/matheusPierro/
+- Matheus Ramos de Pierro - Arquiteto e Dev Backend - https://github.com/matheusPierro/
 - Felipe de Lima Santiago - Scrum Master - https://github.com/fehstack
 - Gabriel Tricerri André Niacaris - DBA e UX/UI Designer - https://github.com/gabriel-tricerri
 - Victor Shimada - Desenvolvedor Frontend - https://github.com/shimarrudz
@@ -14,9 +14,13 @@ A equipe do Syncfy é composta por experientes no desenvolvimento de soluções 
 
 [Estudo de caso ](#_Estudo_de_caso)
 
+[Fluxograma da arquitetura do Sistema](#_fluxograma_)
+
 [Diagrama de Classes ](#_Diagrama_de_Classes)
 
 [Como rodar a aplicação](#_Rodar_Aplicacao)
+
+[Pitch](#_pitch)
 
 <a id="_Estudo_de_caso"></a>
 # Estudo de caso
@@ -57,8 +61,10 @@ A implementação do Syncfy terá um impacto notável nas empresas que adotaram 
 ## Conclusão
 O projeto Syncfy ilustra como a inovação tecnológica pode simplificar processos de aquisição complexos. Ao focar na precisão e na eficiência, a plataforma ajudou as empresas a otimizar suas operações de aquisição, economizando tempo e recursos valiosos. A busca por um matching de 100% nas cotações demonstra o compromisso contínuo da Syncfy em atender às necessidades de seus clientes e melhorar constantemente a eficiência dos processos de aquisição.
 
-<a id="_Diagrama_de_Classes"></a>
+<a id="_fluxograma_"></a>
+# Fluxograma da Arquitetura do Sistema
 
+<a id="_Diagrama_de_Classes"></a>
 # Diagrama de Classes
 
 <img src="documentacao/diagrama.png" title="Diagrama de Classes">
@@ -66,3 +72,27 @@ O projeto Syncfy ilustra como a inovação tecnológica pode simplificar process
 <a id="_Rodar_Aplicacao"></a>
 
 # Como rodar a aplicação
+Será necessário seguir os passos abaixo:
+
+1. **Build do projeto**: Através do maven abra o projeto e execute o seguinte comando:
+
+mvn clean install -DskipTests -U
+
+Assim ele irá buildar o projeto pulando as etapas de testes e forçando atualizações necessárias.
+
+2. **Encontrar arquivo .jar (lib) do projeto**: 
+Após o build do projeto se tudo ocorrer bem esperamos encontrar um arquivo .jar do projeto dentro da pasta target do projeto (A mesma foi criada logo após o build).
+
+/target/syncfy-0.0.1-SNAPSHOT.jar
+
+3. **Rodar aplicação através da lib**: Agora que temos nossa lib(arquivo .jar do nosso projeto) podemos rodar a aplicação com o seguinte comando:
+
+java -jar target/syncfy-0.0.1-SNAPSHOT.jar
+
+p.s. é necessário ter a jdk versão 17 instalada em sua máquina ou podem acontecer erros de versão.
+
+<a id="_endpoints"></a>
+### Endpoints para testar a aplicação rodando:
+
+<a id="_pitch"></a>
+## Para mais detalhes assista ao nosso Picth:
