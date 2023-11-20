@@ -6,8 +6,9 @@ import jakarta.persistence.*;
 @Table(name = "USUARIO")
 @Entity(name = "Usuario")
 public class Usuario {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "COD_USER")
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_USER")
+    @SequenceGenerator(name = "SQ_USER", sequenceName = "SQ_USER", allocationSize = 1, initialValue = 1)    @Column(name = "COD_USER")
     private Long cod;
     private String usuario;
     private String senha;

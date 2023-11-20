@@ -9,7 +9,8 @@ import jakarta.persistence.*;
 public class Estado {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_ESTADO")
+    @SequenceGenerator(name = "SQ_ESTADO", sequenceName = "SQ_ESTADO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_ESTADO")
     private Long cod;
     private String estado;

@@ -8,7 +8,9 @@ import jakarta.persistence.*;
 @Entity(name = "Pais")
 public class Pais {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_PAIS")
+    @SequenceGenerator(name = "SQ_PAIS", sequenceName = "SQ_PAIS", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_PAIS")
     private Long cod;
     private String pais;

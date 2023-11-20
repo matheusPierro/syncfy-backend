@@ -9,7 +9,8 @@ import java.math.BigDecimal;
 public class Frete {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_FRETE")
+    @SequenceGenerator(name = "SQ_FRETE", sequenceName = "SQ_FRETE", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_FRETE")
     private Long cod;
     private BigDecimal custo;

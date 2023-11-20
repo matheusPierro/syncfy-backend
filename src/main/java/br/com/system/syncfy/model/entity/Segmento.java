@@ -7,7 +7,9 @@ import jakarta.persistence.*;
 @Entity(name = "Segmento")
 public class Segmento {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_SEGMENTO")
+    @SequenceGenerator(name = "SQ_SEGMENTO", sequenceName = "SQ_SEGMENTO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_SEGMENTO")
     private Long cod;
     private String segmento;

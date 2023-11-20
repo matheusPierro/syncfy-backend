@@ -9,7 +9,9 @@ import java.time.LocalDate;
 @Entity(name = "Pedido")
 public class Pedido {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_PEDIDO")
+    @SequenceGenerator(name = "SQ_PEDIDO", sequenceName = "SQ_PEDIDO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_PEDIDO")
     private Long cod;
     private LocalDate dataCriacao;

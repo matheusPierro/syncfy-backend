@@ -8,7 +8,8 @@ import jakarta.persistence.*;
 public class Endereco {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_ENDERECO")
+    @SequenceGenerator(name = "SQ_ENDERECO", sequenceName = "SQ_ENDERECO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_ENDERECO")
     private Long cod;
     private String cep;

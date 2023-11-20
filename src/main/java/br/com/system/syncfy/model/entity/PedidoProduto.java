@@ -6,7 +6,9 @@ import jakarta.persistence.*;
 @Entity(name = "PedidoProduto")
 public class PedidoProduto {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_PEDIDO_PRODUTO")
+    @SequenceGenerator(name = "SQ_PEDIDO_PRODUTO", sequenceName = "SQ_PEDIDO_PRODUTO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_PEDIDO_PRODUTO")
     private Long cod;
     private int quantidade;

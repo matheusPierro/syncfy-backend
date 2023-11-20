@@ -8,7 +8,9 @@ import java.math.BigDecimal;
 @Entity(name = "Produto")
 public class Produto {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_PRODUTO")
+    @SequenceGenerator(name = "SQ_PRODUTO", sequenceName = "SQ_PRODUTO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_PRODUTO")
     private Long cod;
     private BigDecimal qtdUnitaria;

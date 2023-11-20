@@ -8,9 +8,11 @@ import jakarta.persistence.*;
 public class Bairro {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_BAIRRO")
+    @SequenceGenerator(name = "SQ_BAIRRO", sequenceName = "SQ_BAIRRO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_BAIRRO")
     private Long cod;
+
     private String bairro;
 
     // FKS
