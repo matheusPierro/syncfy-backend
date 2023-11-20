@@ -8,7 +8,7 @@ A equipe do Syncfy é composta por experientes no desenvolvimento de soluções 
 - Felipe de Lima Santiago - Scrum Master - https://github.com/fehstack
 - Gabriel Tricerri André Niacaris - DBA e UX/UI Designer - https://github.com/gabriel-tricerri
 - Victor Shimada - Desenvolvedor Frontend - https://github.com/shimarrudz
-- Thiago Gyorgy Teixeira de Castro - Dev Backend - https://github.com/ThiCastroo/
+- Thiago Gyorgy Teixeira de Castro - Analista de APIs - https://github.com/ThiCastroo/
 
 # Sumário
 
@@ -62,7 +62,7 @@ A implementação do Syncfy terá um impacto notável nas empresas que adotaram 
 O projeto Syncfy ilustra como a inovação tecnológica pode simplificar processos de aquisição complexos. Ao focar na precisão e na eficiência, a plataforma ajudou as empresas a otimizar suas operações de aquisição, economizando tempo e recursos valiosos. A busca por um matching de 100% nas cotações demonstra o compromisso contínuo da Syncfy em atender às necessidades de seus clientes e melhorar constantemente a eficiência dos processos de aquisição.
 
 <a id="_fluxograma_"></a>
-### Fluxograma da Arquitetura do Sistema
+# Fluxograma da Arquitetura do Sistema
 
 <img src="./documentacao/Enterprise%20Application%20Development/FluxogramaArquiteturaDoSistema.png" title="Fluxograma da Arquitetura do Sistema">
 
@@ -74,8 +74,7 @@ O projeto Syncfy ilustra como a inovação tecnológica pode simplificar process
 
 
 <a id="_Diagrama_de_Classes"></a>
-### Diagrama de Classes
-<img src="./documentacao/Enterprise%20Application%20Development/Diagrama_de_Classes.png" title="Diagrama de Classes">
+# Diagrama de Classes
 
 <a id="_Rodar_Aplicacao"></a>
 # Como rodar a aplicação
