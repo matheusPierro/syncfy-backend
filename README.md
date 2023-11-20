@@ -95,6 +95,8 @@ O projeto Syncfy ilustra como a inovação tecnológica pode simplificar process
 
 # Diagrama de Classes
 
+<img src="./documentacao/Enterprise%20Application%20Development/Diagrama_de_Classes.png" title="Diagrama de Classes">
+
 <a id="_Rodar_Aplicacao"></a>
 
 # Como rodar a aplicação
@@ -125,3 +127,5 @@ p.s. é necessário ter a jdk versão 17 instalada em sua máquina ou podem acon
 <a id="_pitch"></a>
 
 ## Para mais detalhes assista ao nosso Picth:
+
+https://youtu.be/iyOTlpfnWXU
