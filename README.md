@@ -16,9 +16,9 @@ A equipe do Syncfy é composta por experientes no desenvolvimento de soluções 
 
 [Fluxograma da arquitetura do Sistema](#_fluxograma_)
 
-[Diagrama de Entidades e Relacionamentos ](#_der)
+[Diagrama de Entidades e Relacionamentos ](#_der_)
 
-[Modelo de Entidades e Relacionamentos ](#_mer)
+[Modelo de Entidades e Relacionamentos ](#_mer_)
 
 [Diagrama de Classes ](#_Diagrama_de_Classes)
 
