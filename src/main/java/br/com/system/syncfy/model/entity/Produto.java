@@ -13,7 +13,7 @@ public class Produto {
     @SequenceGenerator(name = "SQ_PRODUTO", sequenceName = "SQ_PRODUTO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_PRODUTO")
     private Long cod;
-    private BigDecimal qtdUnitaria;
+    private BigDecimal valorUnitario;
     private String nome;
     private String descricao;
     private String sku;
@@ -26,9 +26,9 @@ public class Produto {
     public Produto() {
     }
 
-    public Produto(Long cod, BigDecimal qtdUnitaria, String nome, String descricao, String sku, Categoria categoria) {
+    public Produto(Long cod, BigDecimal valorUnitario, String nome, String descricao, String sku, Categoria categoria) {
         this.cod = cod;
-        this.qtdUnitaria = qtdUnitaria;
+        this.valorUnitario = valorUnitario;
         this.nome = nome;
         this.descricao = descricao;
         this.sku = sku;
@@ -44,12 +44,12 @@ public class Produto {
         return this;
     }
 
-    public BigDecimal getQtdUnitaria() {
-        return qtdUnitaria;
+    public BigDecimal getValorUnitario() {
+        return valorUnitario;
     }
 
-    public Produto setQtdUnitaria(BigDecimal qtdUnitaria) {
-        this.qtdUnitaria = qtdUnitaria;
+    public Produto setValorUnitario(BigDecimal valorUnitario) {
+        this.valorUnitario = valorUnitario;
         return this;
     }
 
@@ -93,7 +93,7 @@ public class Produto {
     public String toString() {
         return "Produto{" +
                 "cod=" + cod +
-                ", qtdUnitaria=" + qtdUnitaria +
+                ", valorUnitario=" + valorUnitario +
                 ", nome='" + nome + '\'' +
                 ", descricao='" + descricao + '\'' +
                 ", sku='" + sku + '\'' +
