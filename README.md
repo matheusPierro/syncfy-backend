@@ -16,6 +16,10 @@ A equipe do Syncfy é composta por experientes no desenvolvimento de soluções 
 
 [Fluxograma da arquitetura do Sistema](#_fluxograma_)
 
+[Diagrama de Entidades e Relacionamentos ](#_der)
+
+[Modelo de Entidades e Relacionamentos ](#_mer)
+
 [Diagrama de Classes ](#_Diagrama_de_Classes)
 
 [Como rodar a aplicação](#_Rodar_Aplicacao)
@@ -75,11 +79,15 @@ O projeto Syncfy ilustra como a inovação tecnológica pode simplificar process
 
 <img src="./documentacao/Enterprise%20Application%20Development/FluxogramaArquiteturaDoSistema.png" title="Fluxograma da Arquitetura do Sistema">
 
-### Modelo Lógico do Banco de Dados do Sistema
+<a id="_der_"></a>
+
+# Diagrama de Entidades e Relacionamentos 
 
 <img src="./documentacao/Enterprise%20Application%20Development/MLSyncfy.jpeg" title="Fluxograma da Arquitetura do Sistema">
 
-### Modelo Relacional do Banco de Dados do Sistema
+<a id="_mer_"></a>
+
+# Modelo de Entidades e Relacionamentos
 
 <img src="./documentacao/Enterprise%20Application%20Development/MR_Syncfy.jpeg" title="Fluxograma da Arquitetura do Sistema">
 
