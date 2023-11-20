@@ -1,6 +1,9 @@
-package br.com.system.syncfy.model.entity;
+package br.com.system.syncfy.model.entity.pessoa;
 
 import br.com.system.syncfy.model.dto.DadosCadastroPessoaJuridica;
+import br.com.system.syncfy.model.entity.Endereco;
+import br.com.system.syncfy.model.entity.Segmento;
+import br.com.system.syncfy.model.entity.Usuario;
 import jakarta.persistence.*;
 
 @Table(name = "PESSOA_JURIDICA")//, @UniqueConstraint()

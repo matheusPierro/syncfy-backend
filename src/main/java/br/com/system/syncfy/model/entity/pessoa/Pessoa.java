@@ -1,7 +1,7 @@
-package br.com.system.syncfy.model.entity;
+package br.com.system.syncfy.model.entity.pessoa;
 
-import br.com.system.syncfy.model.dto.DadosEndereco;
-import br.com.system.syncfy.model.dto.DadosUsuario;
+import br.com.system.syncfy.model.entity.Endereco;
+import br.com.system.syncfy.model.entity.Usuario;
 import jakarta.persistence.*;
 
 @Table(name = "PESSOA")

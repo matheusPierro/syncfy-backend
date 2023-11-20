@@ -1,5 +1,6 @@
 package br.com.system.syncfy.model.entity;
 
+import br.com.system.syncfy.model.entity.pessoa.Pessoa;
 import jakarta.persistence.*;
 
 @Table(name = "TELEFONE")

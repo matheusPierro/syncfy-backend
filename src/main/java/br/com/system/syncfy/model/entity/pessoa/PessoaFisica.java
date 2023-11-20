@@ -1,5 +1,7 @@
-package br.com.system.syncfy.model.entity;
+package br.com.system.syncfy.model.entity.pessoa;
 
+import br.com.system.syncfy.model.entity.Endereco;
+import br.com.system.syncfy.model.entity.Usuario;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 

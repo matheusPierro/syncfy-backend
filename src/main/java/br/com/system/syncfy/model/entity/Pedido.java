@@ -1,5 +1,7 @@
 package br.com.system.syncfy.model.entity;
 
+import br.com.system.syncfy.model.entity.pessoa.PessoaFisica;
+import br.com.system.syncfy.model.entity.pessoa.PessoaJuridica;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
