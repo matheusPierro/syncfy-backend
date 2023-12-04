@@ -14,7 +14,7 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_PEDIDO")
     @SequenceGenerator(name = "SQ_PEDIDO", sequenceName = "SQ_PEDIDO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_PEDIDO")
-    private Long cod;
+    private Long codPedido;
     private LocalDate dataCriacao;
     private LocalDate dataAtualizacao;
     private BigDecimal precoTotal;
@@ -29,14 +29,6 @@ public class Pedido {
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(
-            name = "PESSOA_FISICA",
-            referencedColumnName = "COD_PESSOA",
-            foreignKey = @ForeignKey(name = "FK_PEDIDO_PESSOA_FISICA")
-    )
-    private PessoaFisica pessoaFisica;
-
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(
             name = "PESSOA_JURIDICA",
             referencedColumnName = "COD_PESSOA",
             foreignKey = @ForeignKey(name = "FK_PEDIDO_PESSOA_JURIDICA")
@@ -46,8 +38,8 @@ public class Pedido {
     public Pedido() {
     }
 
-    public Pedido(Long cod, LocalDate dataCriacao, LocalDate dataAtualizacao, BigDecimal precoTotal, LocalDate dataEntrega, Long numeroPedido, String descricao, Frete frete, PessoaFisica pessoaFisica, PessoaJuridica pessoaJuridica) {
-        this.cod = cod;
+    public Pedido(Long codPedido, LocalDate dataCriacao, LocalDate dataAtualizacao, BigDecimal precoTotal, LocalDate dataEntrega, Long numeroPedido, String descricao, Frete frete, PessoaJuridica pessoaJuridica) {
+        this.codPedido = codPedido;
         this.dataCriacao = dataCriacao;
         this.dataAtualizacao = dataAtualizacao;
         this.precoTotal = precoTotal;
@@ -55,16 +47,15 @@ public class Pedido {
         this.numeroPedido = numeroPedido;
         this.descricao = descricao;
         this.frete = frete;
-        this.pessoaFisica = pessoaFisica;
         this.pessoaJuridica = pessoaJuridica;
     }
 
-    public Long getCod() {
-        return cod;
+    public Long getCodPedido() {
+        return codPedido;
     }
 
-    public Pedido setCod(Long cod) {
-        this.cod = cod;
+    public Pedido setCodPedido(Long codPedido) {
+        this.codPedido = codPedido;
         return this;
     }
 
@@ -131,15 +122,6 @@ public class Pedido {
         return this;
     }
 
-    public PessoaFisica getPessoaFisica() {
-        return pessoaFisica;
-    }
-
-    public Pedido setPessoaFisica(PessoaFisica pessoaFisica) {
-        this.pessoaFisica = pessoaFisica;
-        return this;
-    }
-
     public PessoaJuridica getPessoaJuridica() {
         return pessoaJuridica;
     }
@@ -152,7 +134,7 @@ public class Pedido {
     @Override
     public String toString() {
         return "Pedido{" +
-                "cod=" + cod +
+                "codPedido=" + codPedido +
                 ", dataCriacao=" + dataCriacao +
                 ", dataAtualizacao=" + dataAtualizacao +
                 ", precoTotal=" + precoTotal +
@@ -160,7 +142,6 @@ public class Pedido {
                 ", numeroPedido=" + numeroPedido +
                 ", descricao='" + descricao + '\'' +
                 ", frete=" + frete +
-                ", pessoaFisica=" + pessoaFisica +
                 ", pessoaJuridica=" + pessoaJuridica +
                 '}';
     }

@@ -3,14 +3,14 @@ package br.com.system.syncfy.model.entity;
 import jakarta.persistence.*;
 
 @Table(name = "PEDIDO_PRODUTO")
-@Entity(name = "PedidoProduto")
+@Entity
 public class PedidoProduto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_PEDIDO_PRODUTO")
     @SequenceGenerator(name = "SQ_PEDIDO_PRODUTO", sequenceName = "SQ_PEDIDO_PRODUTO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_PEDIDO_PRODUTO")
-    private Long cod;
+    private Long codPedidoProduto;
     private int quantidade;
 
     // FKS
@@ -33,19 +33,19 @@ public class PedidoProduto {
     public PedidoProduto() {
     }
 
-    public PedidoProduto(Long cod, int quantidade, Pedido pedido, Produto produto) {
-        this.cod = cod;
+    public PedidoProduto(Long codPedidoProduto, int quantidade, Pedido pedido, Produto produto) {
+        this.codPedidoProduto = codPedidoProduto;
         this.quantidade = quantidade;
         this.pedido = pedido;
         this.produto = produto;
     }
 
-    public Long getCod() {
-        return cod;
+    public Long getCodPedidoProduto() {
+        return codPedidoProduto;
     }
 
-    public PedidoProduto setCod(Long cod) {
-        this.cod = cod;
+    public PedidoProduto setCodPedidoProduto(Long codPedidoProduto) {
+        this.codPedidoProduto = codPedidoProduto;
         return this;
     }
 
@@ -79,7 +79,7 @@ public class PedidoProduto {
     @Override
     public String toString() {
         return "PedidoProduto{" +
-                "cod=" + cod +
+                "codPedidoProduto=" + codPedidoProduto +
                 ", quantidade=" + quantidade +
                 ", pedido=" + pedido +
                 ", produto=" + produto +

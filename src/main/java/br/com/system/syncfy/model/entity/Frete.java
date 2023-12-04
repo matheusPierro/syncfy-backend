@@ -12,23 +12,23 @@ public class Frete {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_FRETE")
     @SequenceGenerator(name = "SQ_FRETE", sequenceName = "SQ_FRETE", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_FRETE")
-    private Long cod;
+    private Long codFrete;
     private BigDecimal custo;
 
     public Frete() {
     }
 
-    public Frete(Long cod, BigDecimal custo) {
-        this.cod = cod;
+    public Frete(Long codFrete, BigDecimal custo) {
+        this.codFrete = codFrete;
         this.custo = custo;
     }
 
-    public Long getCod() {
-        return cod;
+    public Long getCodFrete() {
+        return codFrete;
     }
 
-    public Frete setCod(Long cod) {
-        this.cod = cod;
+    public Frete setCodFrete(Long codFrete) {
+        this.codFrete = codFrete;
         return this;
     }
 
@@ -44,7 +44,7 @@ public class Frete {
     @Override
     public String toString() {
         return "Frete{" +
-                "cod=" + cod +
+                "codFrete=" + codFrete +
                 ", custo=" + custo +
                 '}';
     }

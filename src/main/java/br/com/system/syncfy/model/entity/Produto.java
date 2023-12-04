@@ -5,14 +5,14 @@ import jakarta.persistence.*;
 import java.math.BigDecimal;
 
 @Table(name = "PRODUTO")
-@Entity(name = "Produto")
+@Entity
 public class Produto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_PRODUTO")
     @SequenceGenerator(name = "SQ_PRODUTO", sequenceName = "SQ_PRODUTO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_PRODUTO")
-    private Long cod;
+    private Long codProduto;
     private BigDecimal valorUnitario;
     private String nome;
     private String descricao;
@@ -26,8 +26,8 @@ public class Produto {
     public Produto() {
     }
 
-    public Produto(Long cod, BigDecimal valorUnitario, String nome, String descricao, String sku, Categoria categoria) {
-        this.cod = cod;
+    public Produto(Long codProduto, BigDecimal valorUnitario, String nome, String descricao, String sku, Categoria categoria) {
+        this.codProduto = codProduto;
         this.valorUnitario = valorUnitario;
         this.nome = nome;
         this.descricao = descricao;
@@ -35,12 +35,12 @@ public class Produto {
         this.categoria = categoria;
     }
 
-    public Long getCod() {
-        return cod;
+    public Long getCodProduto() {
+        return codProduto;
     }
 
-    public Produto setCod(Long cod) {
-        this.cod = cod;
+    public Produto setCodProduto(Long codProduto) {
+        this.codProduto = codProduto;
         return this;
     }
 
@@ -92,7 +92,7 @@ public class Produto {
     @Override
     public String toString() {
         return "Produto{" +
-                "cod=" + cod +
+                "codProduto=" + codProduto +
                 ", valorUnitario=" + valorUnitario +
                 ", nome='" + nome + '\'' +
                 ", descricao='" + descricao + '\'' +
