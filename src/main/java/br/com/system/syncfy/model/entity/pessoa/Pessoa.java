@@ -15,8 +15,11 @@ public class Pessoa {
     @SequenceGenerator(name = "SQ_PESSOA", sequenceName = "SQ_PESSOA", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_PESSOA")
     private Long codPessoa;
+    @Column(name = "NM_PESSOA", nullable = false)
     private String nome;
+    @Column(name = "EMAIL", nullable = false)
     private String email;
+    @Column(name = "DELETE_PESSOA")
     private boolean softDelete;
 
     // FKS

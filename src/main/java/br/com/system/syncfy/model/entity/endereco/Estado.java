@@ -12,6 +12,7 @@ public class Estado {
     @SequenceGenerator(name = "SQ_ESTADO", sequenceName = "SQ_ESTADO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_ESTADO")
     private Long codEstado;
+    @Column(name = "NM_ESTADO", nullable = false)
     private String nome;
 
     // FKS

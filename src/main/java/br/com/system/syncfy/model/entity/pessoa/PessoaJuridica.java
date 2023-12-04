@@ -10,7 +10,9 @@ import jakarta.persistence.*;
 @Entity
 @DiscriminatorValue(value = "PJ")
 public class PessoaJuridica extends Pessoa {
+    @Column(name = "CNPJ", nullable = false)
     private String cnpj;
+    @Column(name = "TIPO_PJ", nullable = false)
     private String tipo;
 
     // FKS

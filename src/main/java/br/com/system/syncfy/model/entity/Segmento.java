@@ -11,6 +11,7 @@ public class Segmento {
     @SequenceGenerator(name = "SQ_SEGMENTO", sequenceName = "SQ_SEGMENTO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_SEGMENTO")
     private Long codSegmento;
+    @Column(name = "NM_SEGMENTO", nullable = false)
     private String nome;
 
     public Segmento() {

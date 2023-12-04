@@ -12,9 +12,13 @@ public class Endereco {
     @SequenceGenerator(name = "SQ_ENDERECO", sequenceName = "SQ_ENDERECO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_ENDERECO")
     private Long codEndereco;
+    @Column(name = "CEP", nullable = false)
     private String cep;
+    @Column(name = "LOGRADOURO", nullable = false)
     private String logradouro;
+    @Column(name = "NR_ENDERECO")
     private String numero;
+    @Column(name = "COMPLEMENTO_ENDERECO")
     private String complemento;
 
     // FKS

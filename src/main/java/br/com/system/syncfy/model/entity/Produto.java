@@ -13,9 +13,13 @@ public class Produto {
     @SequenceGenerator(name = "SQ_PRODUTO", sequenceName = "SQ_PRODUTO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_PRODUTO")
     private Long codProduto;
+    @Column(name = "VALOR_UNIT_PRODUTO", nullable = false)
     private BigDecimal valorUnitario;
+    @Column(name = "NM_PRODUTO", nullable = false)
     private String nome;
+    @Column(name = "DESC_PRODUTO")
     private String descricao;
+    @Column(name = "SKU_PRODUTO", nullable = false)
     private String sku;
 
     // FKS

@@ -15,11 +15,17 @@ public class Pedido {
     @SequenceGenerator(name = "SQ_PEDIDO", sequenceName = "SQ_PEDIDO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_PEDIDO")
     private Long codPedido;
+    @Column(name = "DT_CRIACAO_PEDIDO", nullable = false)
     private LocalDate dataCriacao;
+    @Column(name = "DT_ATUALIZACAO_PEDIDO")
     private LocalDate dataAtualizacao;
+    @Column(name = "PRECO_TOTAL_PEDIDO", nullable = false)
     private BigDecimal precoTotal;
+    @Column(name = "DT_ENTREGA_PEDIDO", nullable = false)
     private LocalDate dataEntrega;
+    @Column(name = "NR_PEDIDO", nullable = false)
     private Long numeroPedido;
+    @Column(name = "DESC_PEDIDO")
     private String descricao;
 
     // FKS

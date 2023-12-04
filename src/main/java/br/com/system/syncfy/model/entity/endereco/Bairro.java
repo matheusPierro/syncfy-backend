@@ -12,7 +12,8 @@ public class Bairro {
     @SequenceGenerator(name = "SQ_BAIRRO", sequenceName = "SQ_BAIRRO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_BAIRRO")
     private Long codBairro;
-    
+
+    @Column(name = "NM_BAIRRO", nullable = false)
     private String nome;
 
     // FKS

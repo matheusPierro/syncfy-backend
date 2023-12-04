@@ -13,6 +13,7 @@ public class Frete {
     @SequenceGenerator(name = "SQ_FRETE", sequenceName = "SQ_FRETE", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_FRETE")
     private Long codFrete;
+    @Column(name = "CUSTO_FRETE", nullable = false)
     private BigDecimal custo;
 
     public Frete() {
