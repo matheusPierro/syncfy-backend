@@ -4,7 +4,7 @@ import br.com.system.syncfy.model.dto.DadosPais;
 import jakarta.persistence.*;
 
 @Table(name = "PAIS")
-@Entity(name = "Pais")
+@Entity
 public class Pais {
 
     @Id

@@ -103,7 +103,7 @@ O projeto Syncfy ilustra como a inovação tecnológica pode simplificar process
 
 # Diagrama de Classes
 
-<img src="./documentacao/Enterprise%20Application%20Development/Diagrama_de_Classes.png" title="Diagrama de Classes">
+<img src="./documentacao/Enterprise%20Application%20Development/diagrama_classes.png" title="Diagrama de Classes">
 
 <a id="_Rodar_Aplicacao"></a>
 
@@ -146,3 +146,7 @@ proposta). Importante haver integração com as demais disciplinas;
 ela vai solucionar)
 • Impacto financeiro da aplicação e demais benefícios Vs Investimento necessário para implantação
 e manutenção da aplicação em funcionamento.
+
+Breve Explicação sobre os Relacionamentos e Constraints:
+
+Relacionamentos: Descreva como as entidades estão conectadas. Por exemplo, um relacionamento "um-para-muitos" entre uma entidade "Cliente" e uma entidade "Pedido" indica que um cliente pode fazer vários pedidos, mas cada pedido é associado a apenas um cliente.

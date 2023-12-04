@@ -3,7 +3,7 @@ package br.com.system.syncfy.model.entity;
 import jakarta.persistence.*;
 
 @Table(name = "SEGMENTO")
-@Entity(name = "Segmento")
+@Entity
 public class Segmento {
 
     @Id

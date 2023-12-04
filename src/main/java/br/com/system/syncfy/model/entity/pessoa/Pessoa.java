@@ -5,7 +5,7 @@ import br.com.system.syncfy.model.entity.Usuario;
 import jakarta.persistence.*;
 
 @Table(name = "PESSOA")
-@Entity(name = "Pessoa")
+@Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "TIPO")
 public class Pessoa {

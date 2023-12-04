@@ -4,7 +4,7 @@ import br.com.system.syncfy.model.dto.DadosUsuario;
 import jakarta.persistence.*;
 
 @Table(name = "USUARIO")
-@Entity(name = "Usuario")
+@Entity
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_USER")

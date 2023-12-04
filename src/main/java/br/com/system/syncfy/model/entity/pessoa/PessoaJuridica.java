@@ -7,7 +7,7 @@ import br.com.system.syncfy.model.entity.Usuario;
 import jakarta.persistence.*;
 
 @Table(name = "PESSOA_JURIDICA")//, @UniqueConstraint()
-@Entity(name = "PessoaJuridica")
+@Entity
 @DiscriminatorValue(value = "PJ")
 public class PessoaJuridica extends Pessoa {
     private String cnpj;
