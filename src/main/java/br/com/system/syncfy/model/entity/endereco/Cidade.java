@@ -11,8 +11,8 @@ public class Cidade {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_CIDADE")
     @SequenceGenerator(name = "SQ_CIDADE", sequenceName = "SQ_CIDADE", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_CIDADE")
-    private Long cod;
-    private String cidade;
+    private Long codCidade;
+    private String nome;
     private Long codIbge;
 
     // FKS
@@ -27,33 +27,28 @@ public class Cidade {
     public Cidade() {
     }
 
-    public Cidade(Long cod, String cidade, Long codIbge, Estado estado) {
-        this.cod = cod;
-        this.cidade = cidade;
+    public Cidade(Long codCidade, String nome, Long codIbge, Estado estado) {
+        this.codCidade = codCidade;
+        this.nome = nome;
         this.codIbge = codIbge;
         this.estado = estado;
     }
 
-    public Cidade(DadosCidade dadosCidade) {
-        this.cidade = dadosCidade.cidade();
+    public Long getCodCidade() {
+        return codCidade;
     }
 
-
-    public Long getCod() {
-        return cod;
-    }
-
-    public Cidade setCod(Long cod) {
-        this.cod = cod;
+    public Cidade setCodCidade(Long codCidade) {
+        this.codCidade = codCidade;
         return this;
     }
 
-    public String getCidade() {
-        return cidade;
+    public String getNome() {
+        return nome;
     }
 
-    public Cidade setCidade(String cidade) {
-        this.cidade = cidade;
+    public Cidade setNome(String nome) {
+        this.nome = nome;
         return this;
     }
 
@@ -78,8 +73,8 @@ public class Cidade {
     @Override
     public String toString() {
         return "Cidade{" +
-                "cod=" + cod +
-                ", cidade='" + cidade + '\'' +
+                "codCidade=" + codCidade +
+                ", nome='" + nome + '\'' +
                 ", codIbge=" + codIbge +
                 ", estado=" + estado +
                 '}';

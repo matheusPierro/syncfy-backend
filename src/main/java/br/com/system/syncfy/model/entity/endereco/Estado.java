@@ -11,8 +11,8 @@ public class Estado {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_ESTADO")
     @SequenceGenerator(name = "SQ_ESTADO", sequenceName = "SQ_ESTADO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_ESTADO")
-    private Long cod;
-    private String estado;
+    private Long codEstado;
+    private String nome;
 
     // FKS
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
@@ -26,31 +26,27 @@ public class Estado {
     public Estado() {
     }
 
-    public Estado(Long cod, String estado, Pais pais) {
-        this.cod = cod;
-        this.estado = estado;
+    public Estado(Long codEstado, String nome, Pais pais) {
+        this.codEstado = codEstado;
+        this.nome = nome;
         this.pais = pais;
     }
 
-    public Estado(DadosEstado dadosEstado) {
-        this.estado = dadosEstado.estado();
+    public Long getCodEstado() {
+        return codEstado;
     }
 
-    public Long getCod() {
-        return cod;
-    }
-
-    public Estado setCod(Long cod) {
-        this.cod = cod;
+    public Estado setCodEstado(Long codEstado) {
+        this.codEstado = codEstado;
         return this;
     }
 
-    public String getEstado() {
-        return estado;
+    public String getNome() {
+        return nome;
     }
 
-    public Estado setEstado(String estado) {
-        this.estado = estado;
+    public Estado setNome(String nome) {
+        this.nome = nome;
         return this;
     }
 
@@ -66,8 +62,8 @@ public class Estado {
     @Override
     public String toString() {
         return "Estado{" +
-                "cod=" + cod +
-                ", estado='" + estado + '\'' +
+                "codEstado=" + codEstado +
+                ", nome='" + nome + '\'' +
                 ", pais=" + pais +
                 '}';
     }
