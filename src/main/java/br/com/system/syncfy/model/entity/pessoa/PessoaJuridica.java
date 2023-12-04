@@ -14,8 +14,8 @@ public class PessoaJuridica extends Pessoa {
     private String tipo;
 
     // FKS
-    @OneToOne
-    @JoinColumn(name = "cod")
+    @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "SEGMENTO", referencedColumnName = "COD_SEGMENTO", foreignKey = @ForeignKey(name = "fk_pj_segmento"))
     private Segmento segmento;
 
     public PessoaJuridica() {

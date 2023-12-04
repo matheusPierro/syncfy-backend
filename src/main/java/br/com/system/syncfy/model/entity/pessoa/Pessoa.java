@@ -20,8 +20,8 @@ public class Pessoa {
     private boolean softDelete;
 
     // FKS
-    @OneToOne
-    @JoinColumn(name = "COD_USER")
+    @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "USUARIO", referencedColumnName = "COD_USER", foreignKey = @ForeignKey(name = "fk_pessoa_usuario"))
     private Usuario usuario;
 
     public Pessoa() {

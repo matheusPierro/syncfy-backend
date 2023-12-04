@@ -35,6 +35,8 @@ public class Pedido {
     )
     private PessoaJuridica pessoaJuridica;
 
+    //many to manny com produtos
+
     public Pedido() {
     }
 
