@@ -1,6 +1,6 @@
 package br.com.system.syncfy.model.entity.pessoa;
 
-import br.com.system.syncfy.model.entity.Endereco;
+import br.com.system.syncfy.model.entity.endereco.Endereco;
 import br.com.system.syncfy.model.entity.Usuario;
 import jakarta.persistence.*;
 
@@ -14,21 +14,12 @@ public class Pessoa {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_PESSOA")
     @SequenceGenerator(name = "SQ_PESSOA", sequenceName = "SQ_PESSOA", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_PESSOA")
-    private Long cod;
-
+    private Long codPessoa;
     private String nome;
-    private boolean softDelete;
     private String email;
+    private boolean softDelete;
 
     // FKS
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(
-            name = "ENDERECO",
-            referencedColumnName = "COD_ENDERECO",
-            foreignKey = @ForeignKey(name = "FK_PESSOA_ENDERECO")
-    )
-    private Endereco endereco;
-
     @OneToOne
     @JoinColumn(name = "COD_USER")
     private Usuario usuario;
@@ -36,35 +27,20 @@ public class Pessoa {
     public Pessoa() {
     }
 
-    public Pessoa(Long cod, String nome, boolean softDelete, String email, Endereco endereco, Usuario usuario) {
-        this.cod = cod;
+    public Pessoa(Long codPessoa, String nome, String email, boolean softDelete, Usuario usuario) {
+        this.codPessoa = codPessoa;
         this.nome = nome;
-        this.softDelete = softDelete;
         this.email = email;
-        this.endereco = endereco;
+        this.softDelete = softDelete;
         this.usuario = usuario;
     }
 
-    public Pessoa(
-            String nome,
-            boolean softDelete,
-            String email,
-            Endereco endereco,
-            Usuario usuario
-    ) {
-        this.nome = nome;
-        this.softDelete = softDelete;
-        this.email = email;
-        this.endereco = endereco;
-        this.usuario = usuario;
+    public Long getCodPessoa() {
+        return codPessoa;
     }
 
-    public Long getCod() {
-        return cod;
-    }
-
-    public Pessoa setCod(Long cod) {
-        this.cod = cod;
+    public Pessoa setCodPessoa(Long codPessoa) {
+        this.codPessoa = codPessoa;
         return this;
     }
 
@@ -77,15 +53,6 @@ public class Pessoa {
         return this;
     }
 
-    public boolean isSoftDelete() {
-        return softDelete;
-    }
-
-    public Pessoa setSoftDelete(boolean softDelete) {
-        this.softDelete = softDelete;
-        return this;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -95,12 +62,12 @@ public class Pessoa {
         return this;
     }
 
-    public Endereco getEndereco() {
-        return endereco;
+    public boolean isSoftDelete() {
+        return softDelete;
     }
 
-    public Pessoa setEndereco(Endereco endereco) {
-        this.endereco = endereco;
+    public Pessoa setSoftDelete(boolean softDelete) {
+        this.softDelete = softDelete;
         return this;
     }
 
@@ -116,11 +83,10 @@ public class Pessoa {
     @Override
     public String toString() {
         return "Pessoa{" +
-                "cod=" + cod +
+                "codPessoa=" + codPessoa +
                 ", nome='" + nome + '\'' +
-                ", softDelete=" + softDelete +
                 ", email='" + email + '\'' +
-                ", endereco=" + endereco +
+                ", softDelete=" + softDelete +
                 ", usuario=" + usuario +
                 '}';
     }

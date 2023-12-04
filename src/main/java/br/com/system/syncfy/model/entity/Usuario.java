@@ -8,40 +8,36 @@ import jakarta.persistence.*;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_USER")
-    @SequenceGenerator(name = "SQ_USER", sequenceName = "SQ_USER", allocationSize = 1, initialValue = 1)    @Column(name = "COD_USER")
-    private Long cod;
-    private String usuario;
+    @SequenceGenerator(name = "SQ_USER", sequenceName = "SQ_USER", allocationSize = 1, initialValue = 1)
+    @Column(name = "COD_USER")
+    private Long codUser;
+    private String nome;
     private String senha;
 
     public Usuario() {
     }
 
-    public Usuario(Long cod, String usuario, String senha) {
-        this.cod = cod;
-        this.usuario = usuario;
+    public Usuario(Long codUser, String nome, String senha) {
+        this.codUser = codUser;
+        this.nome = nome;
         this.senha = senha;
     }
 
-    public Usuario(DadosUsuario dadosUsuario) {
-        this.usuario = dadosUsuario.usuario();
-        this.senha = dadosUsuario.senha();
+    public Long getCodUser() {
+        return codUser;
     }
 
-    public Long getCod() {
-        return cod;
-    }
-
-    public Usuario setCod(Long cod) {
-        this.cod = cod;
+    public Usuario setCodUser(Long codUser) {
+        this.codUser = codUser;
         return this;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getNome() {
+        return nome;
     }
 
-    public Usuario setUsuario(String usuario) {
-        this.usuario = usuario;
+    public Usuario setNome(String nome) {
+        this.nome = nome;
         return this;
     }
 
@@ -57,8 +53,8 @@ public class Usuario {
     @Override
     public String toString() {
         return "Usuario{" +
-                "cod=" + cod +
-                ", usuario='" + usuario + '\'' +
+                "codUser=" + codUser +
+                ", nome='" + nome + '\'' +
                 ", senha='" + senha + '\'' +
                 '}';
     }

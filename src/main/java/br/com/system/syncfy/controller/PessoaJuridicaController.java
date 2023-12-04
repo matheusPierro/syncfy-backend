@@ -2,7 +2,7 @@ package br.com.system.syncfy.controller;
 
 
 import br.com.system.syncfy.model.dto.DadosCadastroPessoaJuridica;
-import br.com.system.syncfy.model.entity.Endereco;
+import br.com.system.syncfy.model.entity.endereco.Endereco;
 import br.com.system.syncfy.model.entity.pessoa.PessoaJuridica;
 import br.com.system.syncfy.model.entity.Segmento;
 import br.com.system.syncfy.model.entity.Usuario;

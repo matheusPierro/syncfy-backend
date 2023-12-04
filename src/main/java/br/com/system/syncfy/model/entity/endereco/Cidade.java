@@ -1,6 +1,5 @@
-package br.com.system.syncfy.model.entity;
+package br.com.system.syncfy.model.entity.endereco;
 
-import br.com.system.syncfy.model.dto.DadosBairro;
 import br.com.system.syncfy.model.dto.DadosCidade;
 import jakarta.persistence.*;
 

@@ -91,13 +91,13 @@ O projeto Syncfy ilustra como a inovação tecnológica pode simplificar process
 
 # Diagrama de Entidades e Relacionamentos 
 
-<img src="./documentacao/Enterprise%20Application%20Development/MLSyncfy.jpeg" title="Fluxograma da Arquitetura do Sistema">
+<img src="./documentacao/Enterprise%20Application%20Development/ML_Syncfy.png" title="Fluxograma da Arquitetura do Sistema">
 
 <a id="_mer_"></a>
 
 # Modelo de Entidades e Relacionamentos
 
-<img src="./documentacao/Enterprise%20Application%20Development/MR_Syncfy.jpeg" title="Fluxograma da Arquitetura do Sistema">
+<img src="./documentacao/Enterprise%20Application%20Development/MR_Syncfy.png" title="Fluxograma da Arquitetura do Sistema">
 
 <a id="_Diagrama_de_Classes"></a>
 
@@ -137,3 +137,12 @@ p.s. é necessário ter a jdk versão 17 instalada em sua máquina ou podem acon
 ## Para mais detalhes assista ao nosso Picth:
 
 [![Alt text](https://img.youtube.com/vi/iyOTlpfnWXU/0.jpg)](https://www.youtube.com/watch?v=iyOTlpfnWXU)
+
+
+A Proposta Tecnológica e explicação do problema que se propõe a resolver. (Vocês devem deixar
+claro o escopo evidenciando o problema que será resolvido e o que ficará fora do escopo da
+proposta). Importante haver integração com as demais disciplinas;
+• O público algo da aplicação (pessoas ou setores da empresa que sofrem com aquele problema que
+ela vai solucionar)
+• Impacto financeiro da aplicação e demais benefícios Vs Investimento necessário para implantação
+e manutenção da aplicação em funcionamento.

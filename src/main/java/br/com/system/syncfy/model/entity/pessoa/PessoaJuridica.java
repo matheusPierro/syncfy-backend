@@ -1,7 +1,7 @@
 package br.com.system.syncfy.model.entity.pessoa;
 
 import br.com.system.syncfy.model.dto.DadosCadastroPessoaJuridica;
-import br.com.system.syncfy.model.entity.Endereco;
+import br.com.system.syncfy.model.entity.endereco.Endereco;
 import br.com.system.syncfy.model.entity.Segmento;
 import br.com.system.syncfy.model.entity.Usuario;
 import jakarta.persistence.*;
@@ -11,6 +11,7 @@ import jakarta.persistence.*;
 @DiscriminatorValue(value = "PJ")
 public class PessoaJuridica extends Pessoa {
     private String cnpj;
+    private String tipo;
 
     // FKS
     @OneToOne
@@ -20,22 +21,11 @@ public class PessoaJuridica extends Pessoa {
     public PessoaJuridica() {
     }
 
-    public PessoaJuridica(Long cod, String nome, boolean softDelete, String email, Endereco endereco, Usuario usuario, String cnpj, Segmento segmento) {
-        super(cod, nome, softDelete, email, endereco, usuario);
+    public PessoaJuridica(Long codPessoa, String nome, String email, boolean softDelete, Usuario usuario, String cnpj, String tipo, Segmento segmento) {
+        super(codPessoa, nome, email, softDelete, usuario);
         this.cnpj = cnpj;
+        this.tipo = tipo;
         this.segmento = segmento;
-    }
-
-    public PessoaJuridica(DadosCadastroPessoaJuridica dados) {
-        super(
-                dados.nome(),
-                false,
-                dados.email(),
-                new Endereco(dados.endereco()),
-                new Usuario(dados.usuario())
-        );
-        this.cnpj = dados.cnpj();
-        this.segmento = new Segmento(dados.segmento());
     }
 
     public String getCnpj() {
@@ -44,6 +34,15 @@ public class PessoaJuridica extends Pessoa {
 
     public PessoaJuridica setCnpj(String cnpj) {
         this.cnpj = cnpj;
+        return this;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public PessoaJuridica setTipo(String tipo) {
+        this.tipo = tipo;
         return this;
     }
 
@@ -60,6 +59,7 @@ public class PessoaJuridica extends Pessoa {
     public String toString() {
         return "PessoaJuridica{" +
                 "cnpj='" + cnpj + '\'' +
+                ", tipo='" + tipo + '\'' +
                 ", segmento=" + segmento +
                 "} " + super.toString();
     }

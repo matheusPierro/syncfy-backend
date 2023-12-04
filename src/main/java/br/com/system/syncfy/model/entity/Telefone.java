@@ -11,7 +11,7 @@ public class Telefone {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_TELEFONE")
     @SequenceGenerator(name = "SQ_TELEFONE", sequenceName = "SQ_TELEFONE", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_TELEFONE")
-    private Long cod;
+    private Long codTelefone;
     private String numero;
     private int ddd;
 
@@ -27,19 +27,19 @@ public class Telefone {
     public Telefone() {
     }
 
-    public Telefone(Long cod, String numero, int ddd, Pessoa pessoa) {
-        this.cod = cod;
+    public Telefone(Long codTelefone, String numero, int ddd, Pessoa pessoa) {
+        this.codTelefone = codTelefone;
         this.numero = numero;
         this.ddd = ddd;
         this.pessoa = pessoa;
     }
 
-    public Long getCod() {
-        return cod;
+    public Long getCodTelefone() {
+        return codTelefone;
     }
 
-    public Telefone setCod(Long cod) {
-        this.cod = cod;
+    public Telefone setCodTelefone(Long codTelefone) {
+        this.codTelefone = codTelefone;
         return this;
     }
 
@@ -73,7 +73,7 @@ public class Telefone {
     @Override
     public String toString() {
         return "Telefone{" +
-                "cod=" + cod +
+                "codTelefone=" + codTelefone +
                 ", numero='" + numero + '\'' +
                 ", ddd=" + ddd +
                 ", pessoa=" + pessoa +
