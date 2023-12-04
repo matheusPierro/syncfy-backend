@@ -16,6 +16,8 @@ A equipe do Syncfy é composta por experientes no desenvolvimento de soluções 
 
 [Fluxograma da arquitetura do Sistema](#_fluxograma_)
 
+[Fluxograma de comunicação do Sistema](#_comunicacao_)
+
 [Diagrama de Entidades e Relacionamentos ](#_der_)
 
 [Modelo de Entidades e Relacionamentos ](#_mer_)
@@ -78,6 +80,12 @@ O projeto Syncfy ilustra como a inovação tecnológica pode simplificar process
 # Fluxograma da Arquitetura do Sistema
 
 <img src="./documentacao/Enterprise%20Application%20Development/FluxogramaArquiteturaDoSistema.png" title="Fluxograma da Arquitetura do Sistema">
+
+<a id="_comunicacao_"></a>
+
+# Fluxograma da Arquitetura de Recursos do Sistema e Comunicação
+
+<img src="./documentacao/DevOps%20Tools%20e%20Cloud%20Computing/Arquitetura_Recursos_Sistema.jpeg" title="Fluxograma da Arquitetura do Sistema">
 
 <a id="_der_"></a>
 
