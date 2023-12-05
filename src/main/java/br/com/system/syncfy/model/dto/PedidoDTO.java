@@ -1,5 +1,6 @@
 package br.com.system.syncfy.model.dto;
 
+import br.com.system.syncfy.model.dto.pessoa.PessoaJuridicaDTO;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;

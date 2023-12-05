@@ -9,7 +9,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Table(name = "PEDIDO", uniqueConstraints = {
-        @UniqueConstraint(name = "UK_PEDIDO_NUMERO", columnNames = {"NR_PEDIDO"})
+        @UniqueConstraint(name = "UK_PEDIDO_NUMERO_PEDIDO", columnNames = {"NUMERO_PEDIDO"})
 })
 @Entity
 public class Pedido {

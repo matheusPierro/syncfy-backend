@@ -1,6 +1,5 @@
 package br.com.system.syncfy.model.entity;
 
-import br.com.system.syncfy.model.dto.DadosUsuario;
 import jakarta.persistence.*;
 
 @Table(name = "USUARIO")

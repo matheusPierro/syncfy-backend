@@ -1,7 +1,7 @@
 package br.com.system.syncfy.model.entity.pessoa;
 
-import br.com.system.syncfy.model.dto.PessoaJuridicaDTO;
-import br.com.system.syncfy.model.entity.endereco.Endereco;
+import br.com.system.syncfy.model.dto.pessoa.NewPessoaJuridicaDTO;
+import br.com.system.syncfy.model.dto.pessoa.PessoaJuridicaDTO;
 import br.com.system.syncfy.model.entity.Segmento;
 import br.com.system.syncfy.model.entity.Usuario;
 import jakarta.persistence.*;
@@ -34,12 +34,16 @@ public class PessoaJuridica extends Pessoa {
     }
 
     //entrada
-    public PessoaJuridica(DadosCadastroPessoaJuridica dados) {
-
+    public PessoaJuridica(NewPessoaJuridicaDTO dados) {
+        super(dados.nome(), dados.email(), dados.softDelete(), dados.usuario());
+        this.cnpj = dados.cnpj();
+        this.tipo = dados.tipo();
+        this.segmento = dados.segmento();
     }
 
+
     //saida
-//    public PessoaJuridica(DadosCadastroPessoaJuridica dados) {
+//    public PessoaJuridica(PessoaJuridicaDTO dados) {
 //
 //    }
 
@@ -77,5 +81,19 @@ public class PessoaJuridica extends Pessoa {
                 ", tipo='" + tipo + '\'' +
                 ", segmento=" + segmento +
                 "} " + super.toString();
+    }
+
+    public void atualizar(PessoaJuridicaDTO dados) {
+        this.setNome(dados.nome());
+        this.setEmail(dados.email());
+        this.setSoftDelete(dados.softDelete());
+        this.setUsuario(dados.usuario());
+        this.setCnpj(dados.cnpj());
+        this.setTipo(dados.tipo());
+        this.setSegmento(dados.segmento());
+    }
+
+    public void excluir() {
+        this.setSoftDelete(true);
     }
 }

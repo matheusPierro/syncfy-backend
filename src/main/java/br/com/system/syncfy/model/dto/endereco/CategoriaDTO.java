@@ -1,4 +1,4 @@
-package br.com.system.syncfy.model.dto;
+package br.com.system.syncfy.model.dto.endereco;
 
 import jakarta.validation.constraints.NotBlank;
 

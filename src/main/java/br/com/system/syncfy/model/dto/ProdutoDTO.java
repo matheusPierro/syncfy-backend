@@ -1,5 +1,6 @@
 package br.com.system.syncfy.model.dto;
 
+import br.com.system.syncfy.model.dto.endereco.CategoriaDTO;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 

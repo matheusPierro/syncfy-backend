@@ -1,6 +1,5 @@
 package br.com.system.syncfy.model.entity.endereco;
 
-import br.com.system.syncfy.model.dto.DadosPais;
 import jakarta.persistence.*;
 
 @Table(name = "PAIS")

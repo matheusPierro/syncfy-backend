@@ -1,13 +1,16 @@
 package br.com.system.syncfy.controller;
 
 
-import br.com.system.syncfy.model.dto.DadosCadastroPessoaJuridica;
-import br.com.system.syncfy.model.dto.DadosPessoaJuridica;
+import br.com.system.syncfy.model.dto.pessoa.NewPessoaJuridicaDTO;
+import br.com.system.syncfy.model.dto.pessoa.PessoaJuridicaDTO;
 import br.com.system.syncfy.model.entity.pessoa.PessoaJuridica;
 import br.com.system.syncfy.model.repository.PessoaJuridicaRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,10 +24,14 @@ public class PessoaJuridicaController {
     @Autowired
     private PessoaJuridicaRepository pessoaJuridicaRepository;
 
+    @GetMapping("/all")
+    public Page<PessoaJuridicaDTO> listar(@PageableDefault() Pageable paginacao) {
+        return pessoaJuridicaRepository.findAll(paginacao).map(PessoaJuridicaDTO :: new);
+    }
 
     @PostMapping
     @Transactional
-    public ResponseEntity<Void> cadastrar(@RequestBody @Valid DadosCadastroPessoaJuridica dados) {
+    public ResponseEntity<Void> cadastrar(@RequestBody @Valid NewPessoaJuridicaDTO dados) {
         PessoaJuridica pessoaJuridica = new PessoaJuridica(dados);
          pessoaJuridicaRepository.save(pessoaJuridica);
         System.out.println(pessoaJuridica);
@@ -33,31 +40,31 @@ public class PessoaJuridicaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<DadosPessoaJuridica> obterDadosPaciente(@PathVariable Long id) {
+    public ResponseEntity<PessoaJuridicaDTO> obterDadosPaciente(@PathVariable Long id) {
         Optional<PessoaJuridica> dadosPessoaJuridicaOptional = pessoaJuridicaRepository.findById(id);
 
         if (dadosPessoaJuridicaOptional.isPresent()) {
             PessoaJuridica dadosPessoajuridica = dadosPessoaJuridicaOptional.get();
-            return ResponseEntity.ok(new DadosPessoaJuridica(dadosPessoajuridica));
+            return ResponseEntity.ok(new PessoaJuridicaDTO(dadosPessoajuridica));
         } else {
             return ResponseEntity.notFound().build();
         }
     }
 
-//    @PutMapping
-//    @Transactional
-//    public void atualizar(@RequestBody @Valid DadosAtualizacaoPessoaJuridica dados) {
-//        PessoaJuridica pessoaJuridica = new PessoaJuridica();
-//        pessoaJuridica = pessoaJuridicaRepository.getReferenceById(dados.codPessoa());
-//        pessoaJuridica.atualizar(dados);
-//    }
+    @PutMapping
+    @Transactional
+    public void atualizar(@RequestBody @Valid PessoaJuridicaDTO dados) {
+        PessoaJuridica pessoaJuridica = new PessoaJuridica();
+        pessoaJuridica = pessoaJuridicaRepository.getReferenceById(dados.codPessoa());
+        pessoaJuridica.atualizar(dados);
+    }
 
-//    @DeleteMapping("/{id}")
-//    @Transactional
-//    public void excluir(@PathVariable Long id) {
-//        PessoaJuridica pessoaJuridica = new PessoaJuridica();
-//        pessoaJuridica = pessoaJuridicaRepository.getReferenceById(id);
-//        pessoaJuridica.excluir();
-//    }
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void excluir(@PathVariable Long id) {
+        PessoaJuridica pessoaJuridica = new PessoaJuridica();
+        pessoaJuridica = pessoaJuridicaRepository.getReferenceById(id);
+        pessoaJuridica.excluir();
+    }
 
 }
