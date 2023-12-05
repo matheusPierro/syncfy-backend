@@ -12,7 +12,7 @@ public class Bairro {
     @SequenceGenerator(name = "SQ_BAIRRO", sequenceName = "SQ_BAIRRO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_BAIRRO")
     private Long codBairro;
-    
+
     private String nome;
 
     // FKS
