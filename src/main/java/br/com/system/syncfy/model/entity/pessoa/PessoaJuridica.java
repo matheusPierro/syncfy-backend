@@ -1,6 +1,6 @@
 package br.com.system.syncfy.model.entity.pessoa;
 
-import br.com.system.syncfy.model.dto.DadosCadastroPessoaJuridica;
+import br.com.system.syncfy.model.dto.PessoaJuridicaDTO;
 import br.com.system.syncfy.model.entity.endereco.Endereco;
 import br.com.system.syncfy.model.entity.Segmento;
 import br.com.system.syncfy.model.entity.Usuario;

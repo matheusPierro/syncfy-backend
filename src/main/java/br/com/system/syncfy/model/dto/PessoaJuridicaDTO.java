@@ -1,27 +1,33 @@
 package br.com.system.syncfy.model.dto;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 
-public record DadosCadastroPessoaJuridica(
+public record PessoaJuridicaDTO(
         @NotBlank(message = "O CNPJ não pode estar em branco.")
+        @Pattern(regexp = "\\d{14}", message = "O CNPJ deve conter apenas dígitos e ter 14 caracteres.")
         String cnpj,
 
         @NotBlank(message = "O e-mail não pode estar em branco.")
         String email,
 
-        @NotNull(message = "O endereço não pode ser nulo.")
-        DadosEndereco endereco,
+        @NotNull
+        @Valid
+        EnderecoDTO endereco,
 
         @NotBlank(message = "O nome não pode estar em branco.")
         String nome,
 
         boolean softDelete,
 
-        @NotNull(message = "O usuário não pode ser nulo.")
-        DadosUsuario usuario,
+        @NotNull
+        @Valid
+        UsuarioDTO usuario,
 
-        @NotNull(message = "O segmento não pode ser nulo.")
-        DadosSegmento segmento
+        @NotNull
+        @Valid
+        SegmentoDTO segmento
 ) {
 }
