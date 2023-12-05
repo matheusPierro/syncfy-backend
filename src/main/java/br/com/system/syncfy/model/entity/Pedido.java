@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Table(name = "PEDIDO", uniqueConstraints = {
         @UniqueConstraint(name = "UK_PEDIDO_NUMERO", columnNames = {"NR_PEDIDO"})
@@ -31,8 +33,8 @@ public class Pedido {
     private String descricao;
 
     // FKS
-    @OneToOne
-    @JoinColumn(name = "COD_FRETE")
+    @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "FRETE", referencedColumnName = "COD_FRETE", foreignKey = @ForeignKey(name = "fk_pedido_frete"))
     private Frete frete;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
@@ -43,12 +45,30 @@ public class Pedido {
     )
     private PessoaJuridica pessoaJuridica;
 
-    //many to manny com produtos
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+            name = "TB_PEDIDO_PRODUTO",
+            joinColumns = {
+                    @JoinColumn(
+                            name = "PEDIDO",
+                            referencedColumnName = "COD_PEDIDO",
+                            foreignKey = @ForeignKey(name = "FK_PEDIDO_PEDIDO")
+                    )
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(
+                            name = "PRODUTO",
+                            referencedColumnName = "COD_PRODUTO",
+                            foreignKey = @ForeignKey(name = "FK_PEDIDO_PRODUTO")
+                    )
+            }
+    )
+    private Set<Produto> produtos = new LinkedHashSet<>();
 
     public Pedido() {
     }
 
-    public Pedido(Long codPedido, LocalDate dataCriacao, LocalDate dataAtualizacao, BigDecimal precoTotal, LocalDate dataEntrega, Long numeroPedido, String descricao, Frete frete, PessoaJuridica pessoaJuridica) {
+    public Pedido(Long codPedido, LocalDate dataCriacao, LocalDate dataAtualizacao, BigDecimal precoTotal, LocalDate dataEntrega, Long numeroPedido, String descricao, Frete frete, PessoaJuridica pessoaJuridica, Set<Produto> produtos) {
         this.codPedido = codPedido;
         this.dataCriacao = dataCriacao;
         this.dataAtualizacao = dataAtualizacao;
@@ -58,6 +78,7 @@ public class Pedido {
         this.descricao = descricao;
         this.frete = frete;
         this.pessoaJuridica = pessoaJuridica;
+        this.produtos = produtos;
     }
 
     public Long getCodPedido() {
@@ -141,6 +162,15 @@ public class Pedido {
         return this;
     }
 
+    public Set<Produto> getProdutos() {
+        return produtos;
+    }
+
+    public Pedido setProdutos(Set<Produto> produtos) {
+        this.produtos = produtos;
+        return this;
+    }
+
     @Override
     public String toString() {
         return "Pedido{" +
@@ -153,6 +183,7 @@ public class Pedido {
                 ", descricao='" + descricao + '\'' +
                 ", frete=" + frete +
                 ", pessoaJuridica=" + pessoaJuridica +
+                ", produtos=" + produtos +
                 '}';
     }
 }

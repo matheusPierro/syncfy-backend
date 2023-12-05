@@ -25,8 +25,8 @@ public class Produto {
     private String sku;
 
     // FKS
-    @OneToOne
-    @JoinColumn(name = "cod")
+    @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "CATEGORIA", referencedColumnName = "COD_CATEGORIA", foreignKey = @ForeignKey(name = "fk_produto_categoria"))
     private Categoria categoria;
 
     public Produto() {
