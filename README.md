@@ -71,6 +71,24 @@ A implementação do Syncfy terá um impacto notável nas empresas que adotaram 
 
 4. **Economia de Custos**: A redução de erros e a eficiência aprimorada resultaram em economias significativas de custos de aquisição.
 
+Impacto Financeiro:
+
+Eficiência Operacional: O Syncfy é projetado para melhorar a eficiência operacional, reduzindo redundâncias e automatizando processos. Isso resultará em uma otimização de recursos e, por conseguinte, em redução de custos operacionais.
+
+Tomada de Decisão Informada: Com dados centralizados e relatórios em tempo real, o Syncfy capacita a tomada de decisões mais informadas. Isso pode levar a escolhas estratégicas que impactam positivamente os resultados financeiros.
+
+Experiência do Cliente: Melhorar a gestão de pedidos, estoques e fornecedores resultará em uma experiência do cliente aprimorada. A satisfação do cliente pode, por sua vez, impulsionar a lealdade e as receitas.
+
+Escalabilidade: O Syncfy é escalável, o que significa que o sistema pode crescer junto com a empresa. Isso proporciona flexibilidade para expansão e acomodação de futuras demandas sem custos significativos adicionais.
+
+Investimento Necessário:
+
+Licenças e Implementação do Software: O investimento inicial incluirá a aquisição de licenças do Syncfy e os custos associados à implementação do software. Isso abrange a configuração inicial, treinamento da equipe e personalizações necessárias.
+
+Infraestrutura Tecnológica: Certifique-se de que a infraestrutura existente atenda aos requisitos do Syncfy. Pode ser necessário investir em hardware adicional, atualizações de servidores ou ajustes na rede para garantir um desempenho otimizado.
+
+Manutenção e Suporte Contínuos: Considere os custos associados à manutenção contínua do sistema, incluindo atualizações de software, suporte técnico e possíveis custos de integração com outros sistemas.
+
 ## Conclusão
 
 O projeto Syncfy ilustra como a inovação tecnológica pode simplificar processos de aquisição complexos. Ao focar na precisão e na eficiência, a plataforma ajudou as empresas a otimizar suas operações de aquisição, economizando tempo e recursos valiosos. A busca por um matching de 100% nas cotações demonstra o compromisso contínuo da Syncfy em atender às necessidades de seus clientes e melhorar constantemente a eficiência dos processos de aquisição.
@@ -131,6 +149,10 @@ p.s. é necessário ter a jdk versão 17 instalada em sua máquina ou podem acon
 <a id="_endpoints"></a>
 
 ### Endpoints para testar a aplicação rodando:
+Dentro da pasta ./documentacao/Enterprise Application Development/postman existe uma collection com 5 apis formando um crud completo para Company e utilizando paginação simples para testes(não precisamos usar sort ou limite de tamanho)
+
+###Link para tabela de Apis da plataforma que estamos construindo:
+https://www.notion.so/Get-Consultar-Pedido-b6ee3218f30a4e0bb1ea9bd061b92cc2?pvs=4
 
 <a id="_pitch"></a>
 
@@ -138,15 +160,3 @@ p.s. é necessário ter a jdk versão 17 instalada em sua máquina ou podem acon
 
 [![Alt text](https://img.youtube.com/vi/iyOTlpfnWXU/0.jpg)](https://www.youtube.com/watch?v=iyOTlpfnWXU)
 
-
-A Proposta Tecnológica e explicação do problema que se propõe a resolver. (Vocês devem deixar
-claro o escopo evidenciando o problema que será resolvido e o que ficará fora do escopo da
-proposta). Importante haver integração com as demais disciplinas;
-• O público algo da aplicação (pessoas ou setores da empresa que sofrem com aquele problema que
-ela vai solucionar)
-• Impacto financeiro da aplicação e demais benefícios Vs Investimento necessário para implantação
-e manutenção da aplicação em funcionamento.
-
-Breve Explicação sobre os Relacionamentos e Constraints:
-
-Relacionamentos: Descreva como as entidades estão conectadas. Por exemplo, um relacionamento "um-para-muitos" entre uma entidade "Cliente" e uma entidade "Pedido" indica que um cliente pode fazer vários pedidos, mas cada pedido é associado a apenas um cliente.

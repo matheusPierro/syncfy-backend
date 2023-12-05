@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "9e57d7cf-12fe-41a3-8224-ffe56f1ef80c",
+		"name": "SyncfySpringJpa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29945995"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/company",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cnpj\": \"12345678901234\",\r\n    \"email\": \"empresa@example.com\",\r\n    \"softDelete\": false,\r\n    \"usuario\": {\r\n        \"nome\": \"usuario123\",\r\n        \"senha\": \"senha123\"\r\n    },\r\n    \"nome\": \"Empresa XYZ\",\r\n    \"tipo\": \"cliente\", \r\n    \"segmento\": {\r\n        \"nome\": \"Tecnologia\"\r\n    },\r\n    \"endereco\": {\r\n        \"cep\": \"12345-678\",\r\n        \"logradouro\": \"Rua Exemplo\",\r\n        \"numero\": \"123\",\r\n        \"complemento\": \"Sala 456\",\r\n        \"bairro\": {\r\n            \"nome\": \"Bairro Exemplo\",\r\n            \"cidade\": {\r\n                \"nome\": \"Cidade Exemplo\",\r\n                \"codIbge\": 12345,\r\n                \"estado\": {\r\n                    \"nome\": \"Estado Exemplo\",\r\n                    \"pais\": {\r\n                        \"nome\": \"Pais Exemplo\"\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/company",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"company"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/company/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/company/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"company",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/company/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/company/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"company",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/company/1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/company/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"company",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/company",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codPessoa\": 1,\r\n    \"cnpj\": \"12345678901234\",\r\n    \"email\": \"empresaAtualizada@example.com\",\r\n    \"softDelete\": false,\r\n    \"usuario\": {\r\n        \"nome\": \"usuario1234\",\r\n        \"senha\": \"senha123\"\r\n    },\r\n    \"nome\": \"Empresa XYZ\",\r\n    \"tipo\": \"cliente\", \r\n    \"segmento\": {\r\n        \"nome\": \"Jardinagem\"\r\n    }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/company",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"company"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
