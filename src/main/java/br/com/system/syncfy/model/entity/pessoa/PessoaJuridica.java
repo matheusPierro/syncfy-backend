@@ -22,6 +22,7 @@ public class PessoaJuridica extends Pessoa {
     @JoinColumn(name = "SEGMENTO", referencedColumnName = "COD_SEGMENTO", foreignKey = @ForeignKey(name = "fk_pj_segmento"))
     private Segmento segmento;
 
+    // Construtores
     public PessoaJuridica() {
     }
 
@@ -31,6 +32,16 @@ public class PessoaJuridica extends Pessoa {
         this.tipo = tipo;
         this.segmento = segmento;
     }
+
+    //entrada
+    public PessoaJuridica(DadosCadastroPessoaJuridica dados) {
+
+    }
+
+    //saida
+//    public PessoaJuridica(DadosCadastroPessoaJuridica dados) {
+//
+//    }
 
     public String getCnpj() {
         return cnpj;
