@@ -4,16 +4,17 @@ import br.com.system.syncfy.model.dto.DadosBairro;
 import jakarta.persistence.*;
 
 @Table(name = "BAIRRO")
-@Entity(name = "Bairro")
+@Entity
 public class Bairro {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_BAIRRO")
     @SequenceGenerator(name = "SQ_BAIRRO", sequenceName = "SQ_BAIRRO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_BAIRRO")
-    private Long cod;
+    private Long codBairro;
 
-    private String bairro;
+    @Column(name = "NOME_BAIRRO", nullable = false)
+    private String nome;
 
     // FKS
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
@@ -27,31 +28,27 @@ public class Bairro {
     public Bairro() {
     }
 
-    public Bairro(Long cod, String bairro, Cidade cidade) {
-        this.cod = cod;
-        this.bairro = bairro;
+    public Bairro(Long codBairro, String nome, Cidade cidade) {
+        this.codBairro = codBairro;
+        this.nome = nome;
         this.cidade = cidade;
     }
 
-    public Bairro(DadosBairro  dadosBairro) {
-        this.bairro = dadosBairro.bairro();
+    public Long getCodBairro() {
+        return codBairro;
     }
 
-    public Long getCod() {
-        return cod;
-    }
-
-    public Bairro setCod(Long cod) {
-        this.cod = cod;
+    public Bairro setCodBairro(Long codBairro) {
+        this.codBairro = codBairro;
         return this;
     }
 
-    public String getBairro() {
-        return bairro;
+    public String getNome() {
+        return nome;
     }
 
-    public Bairro setBairro(String bairro) {
-        this.bairro = bairro;
+    public Bairro setNome(String nome) {
+        this.nome = nome;
         return this;
     }
 
@@ -67,8 +64,8 @@ public class Bairro {
     @Override
     public String toString() {
         return "Bairro{" +
-                "cod=" + cod +
-                ", bairro='" + bairro + '\'' +
+                "codBairro=" + codBairro +
+                ", nome='" + nome + '\'' +
                 ", cidade=" + cidade +
                 '}';
     }

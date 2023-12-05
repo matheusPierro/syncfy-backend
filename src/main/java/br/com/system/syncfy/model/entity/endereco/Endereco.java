@@ -1,20 +1,24 @@
 package br.com.system.syncfy.model.entity.endereco;
 
-import br.com.system.syncfy.model.dto.DadosEndereco;
+import br.com.system.syncfy.model.entity.pessoa.Pessoa;
 import jakarta.persistence.*;
 
 @Table(name = "ENDERECO")
-@Entity(name = "Endereco")
+@Entity
 public class Endereco {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_ENDERECO")
     @SequenceGenerator(name = "SQ_ENDERECO", sequenceName = "SQ_ENDERECO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_ENDERECO")
-    private Long cod;
+    private Long codEndereco;
+    @Column(name = "CEP", nullable = false)
     private String cep;
+    @Column(name = "LOGRADOURO", nullable = false)
     private String logradouro;
+    @Column(name = "NUMERO_ENDERECO")
     private String numero;
+    @Column(name = "COMPLEMENTO_ENDERECO")
     private String complemento;
 
     // FKS
@@ -26,32 +30,33 @@ public class Endereco {
     )
     private Bairro bairro;
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(
+            name = "PESSOA",
+            referencedColumnName = "COD_PESSOA",
+            foreignKey = @ForeignKey(name = "FK_ENDERECO_PESSOA")
+    )
+    private Pessoa pessoa;
+
     public Endereco() {
     }
 
-    public Endereco(Long cod, String cep, String logradouro, String numero, String complemento, Bairro bairro) {
-        this.cod = cod;
+    public Endereco(Long codEndereco, String cep, String logradouro, String numero, String complemento, Bairro bairro, Pessoa pessoa) {
+        this.codEndereco = codEndereco;
         this.cep = cep;
         this.logradouro = logradouro;
         this.numero = numero;
         this.complemento = complemento;
         this.bairro = bairro;
+        this.pessoa = pessoa;
     }
 
-    public Endereco(DadosEndereco dadosEndereco) {
-        this.cep = dadosEndereco.cep();
-        this.logradouro = dadosEndereco.logradouro();
-        this.numero = dadosEndereco.numero();
-        this.complemento = dadosEndereco.complemento();
-        this.bairro = new Bairro(dadosEndereco.bairro());
+    public Long getCodEndereco() {
+        return codEndereco;
     }
 
-    public Long getCod() {
-        return cod;
-    }
-
-    public Endereco setCod(Long cod) {
-        this.cod = cod;
+    public Endereco setCodEndereco(Long codEndereco) {
+        this.codEndereco = codEndereco;
         return this;
     }
 
@@ -100,15 +105,25 @@ public class Endereco {
         return this;
     }
 
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public Endereco setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+        return this;
+    }
+
     @Override
     public String toString() {
         return "Endereco{" +
-                "cod=" + cod +
+                "codEndereco=" + codEndereco +
                 ", cep='" + cep + '\'' +
                 ", logradouro='" + logradouro + '\'' +
                 ", numero='" + numero + '\'' +
                 ", complemento='" + complemento + '\'' +
                 ", bairro=" + bairro +
+                ", pessoa=" + pessoa +
                 '}';
     }
 }

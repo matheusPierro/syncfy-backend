@@ -4,51 +4,48 @@ import br.com.system.syncfy.model.dto.DadosPais;
 import jakarta.persistence.*;
 
 @Table(name = "PAIS")
-@Entity(name = "Pais")
+@Entity
 public class Pais {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_PAIS")
     @SequenceGenerator(name = "SQ_PAIS", sequenceName = "SQ_PAIS", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_PAIS")
-    private Long cod;
-    private String pais;
+    private Long codPais;
+    @Column(name = "NOME_PAIS", nullable = false)
+    private String nome;
 
     public Pais() {
     }
 
-    public Pais(Long cod, String pais) {
-        this.cod = cod;
-        this.pais = pais;
+    public Pais(Long codPais, String nome) {
+        this.codPais = codPais;
+        this.nome = nome;
     }
 
-    public Pais(DadosPais dadosPais) {
-        this.pais = dadosPais.pais();
+    public Long getCodPais() {
+        return codPais;
     }
 
-    public Long getCod() {
-        return cod;
-    }
-
-    public Pais setCod(Long cod) {
-        this.cod = cod;
+    public Pais setCodPais(Long codPais) {
+        this.codPais = codPais;
         return this;
     }
 
-    public String getPais() {
-        return pais;
+    public String getNome() {
+        return nome;
     }
 
-    public Pais setPais(String pais) {
-        this.pais = pais;
+    public Pais setNome(String nome) {
+        this.nome = nome;
         return this;
     }
 
     @Override
     public String toString() {
         return "Pais{" +
-                "cod=" + cod +
-                ", pais='" + pais + '\'' +
+                "codPais=" + codPais +
+                ", nome='" + nome + '\'' +
                 '}';
     }
 }

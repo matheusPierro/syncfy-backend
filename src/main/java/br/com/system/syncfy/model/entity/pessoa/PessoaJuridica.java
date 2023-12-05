@@ -6,16 +6,20 @@ import br.com.system.syncfy.model.entity.Segmento;
 import br.com.system.syncfy.model.entity.Usuario;
 import jakarta.persistence.*;
 
-@Table(name = "PESSOA_JURIDICA")//, @UniqueConstraint()
-@Entity(name = "PessoaJuridica")
+@Table(name = "PESSOA_JURIDICA", uniqueConstraints = {
+        @UniqueConstraint(name = "UK_PJ_CNPJ", columnNames = {"CNPJ"})
+})
+@Entity
 @DiscriminatorValue(value = "PJ")
 public class PessoaJuridica extends Pessoa {
+    @Column(name = "CNPJ", nullable = false)
     private String cnpj;
+    @Column(name = "TIPO_PJ", nullable = false)
     private String tipo;
 
     // FKS
-    @OneToOne
-    @JoinColumn(name = "cod")
+    @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "SEGMENTO", referencedColumnName = "COD_SEGMENTO", foreignKey = @ForeignKey(name = "fk_pj_segmento"))
     private Segmento segmento;
 
     public PessoaJuridica() {

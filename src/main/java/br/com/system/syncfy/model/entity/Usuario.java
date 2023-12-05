@@ -4,14 +4,16 @@ import br.com.system.syncfy.model.dto.DadosUsuario;
 import jakarta.persistence.*;
 
 @Table(name = "USUARIO")
-@Entity(name = "Usuario")
+@Entity
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_USER")
     @SequenceGenerator(name = "SQ_USER", sequenceName = "SQ_USER", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_USER")
     private Long codUser;
+    @Column(name = "NOME_USUARIO", nullable = false)
     private String nome;
+    @Column(name = "SENHA_USUARIO", nullable = false)
     private String senha;
 
     public Usuario() {

@@ -5,35 +5,37 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
-@Table(name = "PEDIDO")
-@Entity(name = "Pedido")
+@Table(name = "PEDIDO", uniqueConstraints = {
+        @UniqueConstraint(name = "UK_PEDIDO_NUMERO", columnNames = {"NR_PEDIDO"})
+})
+@Entity
 public class Pedido {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_PEDIDO")
     @SequenceGenerator(name = "SQ_PEDIDO", sequenceName = "SQ_PEDIDO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_PEDIDO")
-    private Long cod;
+    private Long codPedido;
+    @Column(name = "DATA_CRIACAO_PEDIDO", nullable = false)
     private LocalDate dataCriacao;
+    @Column(name = "DATA_ATUALIZACAO_PEDIDO")
     private LocalDate dataAtualizacao;
+    @Column(name = "PRECO_TOTAL_PEDIDO", nullable = false)
     private BigDecimal precoTotal;
+    @Column(name = "DATA_ENTREGA_PEDIDO", nullable = false)
     private LocalDate dataEntrega;
+    @Column(name = "NUMERO_PEDIDO", nullable = false)
     private Long numeroPedido;
+    @Column(name = "DESCRICAO_PEDIDO")
     private String descricao;
 
     // FKS
-    @OneToOne
-    @JoinColumn(name = "COD_FRETE")
+    @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "FRETE", referencedColumnName = "COD_FRETE", foreignKey = @ForeignKey(name = "fk_pedido_frete"))
     private Frete frete;
-
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(
-            name = "PESSOA_FISICA",
-            referencedColumnName = "COD_PESSOA",
-            foreignKey = @ForeignKey(name = "FK_PEDIDO_PESSOA_FISICA")
-    )
-    private PessoaFisica pessoaFisica;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(
@@ -43,11 +45,31 @@ public class Pedido {
     )
     private PessoaJuridica pessoaJuridica;
 
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+            name = "TB_PEDIDO_PRODUTO",
+            joinColumns = {
+                    @JoinColumn(
+                            name = "PEDIDO",
+                            referencedColumnName = "COD_PEDIDO",
+                            foreignKey = @ForeignKey(name = "FK_PEDIDO_PEDIDO")
+                    )
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(
+                            name = "PRODUTO",
+                            referencedColumnName = "COD_PRODUTO",
+                            foreignKey = @ForeignKey(name = "FK_PEDIDO_PRODUTO")
+                    )
+            }
+    )
+    private Set<Produto> produtos = new LinkedHashSet<>();
+
     public Pedido() {
     }
 
-    public Pedido(Long cod, LocalDate dataCriacao, LocalDate dataAtualizacao, BigDecimal precoTotal, LocalDate dataEntrega, Long numeroPedido, String descricao, Frete frete, PessoaFisica pessoaFisica, PessoaJuridica pessoaJuridica) {
-        this.cod = cod;
+    public Pedido(Long codPedido, LocalDate dataCriacao, LocalDate dataAtualizacao, BigDecimal precoTotal, LocalDate dataEntrega, Long numeroPedido, String descricao, Frete frete, PessoaJuridica pessoaJuridica, Set<Produto> produtos) {
+        this.codPedido = codPedido;
         this.dataCriacao = dataCriacao;
         this.dataAtualizacao = dataAtualizacao;
         this.precoTotal = precoTotal;
@@ -55,16 +77,16 @@ public class Pedido {
         this.numeroPedido = numeroPedido;
         this.descricao = descricao;
         this.frete = frete;
-        this.pessoaFisica = pessoaFisica;
         this.pessoaJuridica = pessoaJuridica;
+        this.produtos = produtos;
     }
 
-    public Long getCod() {
-        return cod;
+    public Long getCodPedido() {
+        return codPedido;
     }
 
-    public Pedido setCod(Long cod) {
-        this.cod = cod;
+    public Pedido setCodPedido(Long codPedido) {
+        this.codPedido = codPedido;
         return this;
     }
 
@@ -131,15 +153,6 @@ public class Pedido {
         return this;
     }
 
-    public PessoaFisica getPessoaFisica() {
-        return pessoaFisica;
-    }
-
-    public Pedido setPessoaFisica(PessoaFisica pessoaFisica) {
-        this.pessoaFisica = pessoaFisica;
-        return this;
-    }
-
     public PessoaJuridica getPessoaJuridica() {
         return pessoaJuridica;
     }
@@ -149,10 +162,19 @@ public class Pedido {
         return this;
     }
 
+    public Set<Produto> getProdutos() {
+        return produtos;
+    }
+
+    public Pedido setProdutos(Set<Produto> produtos) {
+        this.produtos = produtos;
+        return this;
+    }
+
     @Override
     public String toString() {
         return "Pedido{" +
-                "cod=" + cod +
+                "codPedido=" + codPedido +
                 ", dataCriacao=" + dataCriacao +
                 ", dataAtualizacao=" + dataAtualizacao +
                 ", precoTotal=" + precoTotal +
@@ -160,8 +182,8 @@ public class Pedido {
                 ", numeroPedido=" + numeroPedido +
                 ", descricao='" + descricao + '\'' +
                 ", frete=" + frete +
-                ", pessoaFisica=" + pessoaFisica +
                 ", pessoaJuridica=" + pessoaJuridica +
+                ", produtos=" + produtos +
                 '}';
     }
 }

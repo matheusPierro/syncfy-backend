@@ -1,54 +1,50 @@
 package br.com.system.syncfy.model.entity;
 
-import br.com.system.syncfy.model.dto.DadosSegmento;
 import jakarta.persistence.*;
 
 @Table(name = "SEGMENTO")
-@Entity(name = "Segmento")
+@Entity
 public class Segmento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_SEGMENTO")
     @SequenceGenerator(name = "SQ_SEGMENTO", sequenceName = "SQ_SEGMENTO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_SEGMENTO")
-    private Long cod;
-    private String segmento;
+    private Long codSegmento;
+    @Column(name = "NOME_SEGMENTO", nullable = false)
+    private String nome;
 
     public Segmento() {
     }
 
-    public Segmento(Long cod, String segmento) {
-        this.cod = cod;
-        this.segmento = segmento;
+    public Segmento(Long codSegmento, String nome) {
+        this.codSegmento = codSegmento;
+        this.nome = nome;
     }
 
-    public Segmento(DadosSegmento dadosSegmento) {
-        this.segmento = dadosSegmento.segmento();
+    public Long getCodSegmento() {
+        return codSegmento;
     }
 
-    public Long getCod() {
-        return cod;
-    }
-
-    public Segmento setCod(Long cod) {
-        this.cod = cod;
+    public Segmento setCodSegmento(Long codSegmento) {
+        this.codSegmento = codSegmento;
         return this;
     }
 
-    public String getSegmento() {
-        return segmento;
+    public String getNome() {
+        return nome;
     }
 
-    public Segmento setSegmento(String segmento) {
-        this.segmento = segmento;
+    public Segmento setNome(String nome) {
+        this.nome = nome;
         return this;
     }
 
     @Override
     public String toString() {
         return "Segmento{" +
-                "cod=" + cod +
-                ", segmento='" + segmento + '\'' +
+                "codSegmento=" + codSegmento +
+                ", nome='" + nome + '\'' +
                 '}';
     }
 }

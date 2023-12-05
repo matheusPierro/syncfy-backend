@@ -4,30 +4,36 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
-@Table(name = "PRODUTO")
-@Entity(name = "Produto")
+@Table(name = "PRODUTO", uniqueConstraints = {
+        @UniqueConstraint(name = "UK_PRODUTO_SKU", columnNames = {"SKU_PRODUTO"})
+})
+@Entity
 public class Produto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_PRODUTO")
     @SequenceGenerator(name = "SQ_PRODUTO", sequenceName = "SQ_PRODUTO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_PRODUTO")
-    private Long cod;
+    private Long codProduto;
+    @Column(name = "VALOR_UNITARIO_PRODUTO", nullable = false)
     private BigDecimal valorUnitario;
+    @Column(name = "NOME_PRODUTO", nullable = false)
     private String nome;
+    @Column(name = "DESCRICAO_PRODUTO")
     private String descricao;
+    @Column(name = "SKU_PRODUTO", nullable = false)
     private String sku;
 
     // FKS
-    @OneToOne
-    @JoinColumn(name = "cod")
+    @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "CATEGORIA", referencedColumnName = "COD_CATEGORIA", foreignKey = @ForeignKey(name = "fk_produto_categoria"))
     private Categoria categoria;
 
     public Produto() {
     }
 
-    public Produto(Long cod, BigDecimal valorUnitario, String nome, String descricao, String sku, Categoria categoria) {
-        this.cod = cod;
+    public Produto(Long codProduto, BigDecimal valorUnitario, String nome, String descricao, String sku, Categoria categoria) {
+        this.codProduto = codProduto;
         this.valorUnitario = valorUnitario;
         this.nome = nome;
         this.descricao = descricao;
@@ -35,12 +41,12 @@ public class Produto {
         this.categoria = categoria;
     }
 
-    public Long getCod() {
-        return cod;
+    public Long getCodProduto() {
+        return codProduto;
     }
 
-    public Produto setCod(Long cod) {
-        this.cod = cod;
+    public Produto setCodProduto(Long codProduto) {
+        this.codProduto = codProduto;
         return this;
     }
 
@@ -92,7 +98,7 @@ public class Produto {
     @Override
     public String toString() {
         return "Produto{" +
-                "cod=" + cod +
+                "codProduto=" + codProduto +
                 ", valorUnitario=" + valorUnitario +
                 ", nome='" + nome + '\'' +
                 ", descricao='" + descricao + '\'' +

@@ -4,7 +4,7 @@ import br.com.system.syncfy.model.entity.pessoa.Pessoa;
 import jakarta.persistence.*;
 
 @Table(name = "TELEFONE")
-@Entity(name = "Telefone")
+@Entity
 public class Telefone {
 
     @Id
@@ -12,7 +12,9 @@ public class Telefone {
     @SequenceGenerator(name = "SQ_TELEFONE", sequenceName = "SQ_TELEFONE", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_TELEFONE")
     private Long codTelefone;
+    @Column(name = "NUMERO_TELEFONE", nullable = false)
     private String numero;
+    @Column(name = "DDD", nullable = false)
     private int ddd;
 
     // FKS
