@@ -6,7 +6,9 @@ import br.com.system.syncfy.model.entity.Segmento;
 import br.com.system.syncfy.model.entity.Usuario;
 import jakarta.persistence.*;
 
-@Table(name = "PESSOA_JURIDICA")//, @UniqueConstraint()
+@Table(name = "PESSOA_JURIDICA", uniqueConstraints = {
+        @UniqueConstraint(name = "UK_PJ_CNPJ", columnNames = {"CNPJ"})
+})
 @Entity
 @DiscriminatorValue(value = "PJ")
 public class PessoaJuridica extends Pessoa {

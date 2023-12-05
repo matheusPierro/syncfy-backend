@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
-@Table(name = "PRODUTO")
+@Table(name = "PRODUTO", uniqueConstraints = {
+        @UniqueConstraint(name = "UK_PRODUTO_SKU", columnNames = {"SKU_PRODUTO"})
+})
 @Entity
 public class Produto {
 
@@ -13,11 +15,11 @@ public class Produto {
     @SequenceGenerator(name = "SQ_PRODUTO", sequenceName = "SQ_PRODUTO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_PRODUTO")
     private Long codProduto;
-    @Column(name = "VALOR_UNIT_PRODUTO", nullable = false)
+    @Column(name = "VALOR_UNITARIO_PRODUTO", nullable = false)
     private BigDecimal valorUnitario;
-    @Column(name = "NM_PRODUTO", nullable = false)
+    @Column(name = "NOME_PRODUTO", nullable = false)
     private String nome;
-    @Column(name = "DESC_PRODUTO")
+    @Column(name = "DESCRICAO_PRODUTO")
     private String descricao;
     @Column(name = "SKU_PRODUTO", nullable = false)
     private String sku;

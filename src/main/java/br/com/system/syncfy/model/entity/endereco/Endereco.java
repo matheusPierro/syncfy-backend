@@ -16,7 +16,7 @@ public class Endereco {
     private String cep;
     @Column(name = "LOGRADOURO", nullable = false)
     private String logradouro;
-    @Column(name = "NR_ENDERECO")
+    @Column(name = "NUMERO_ENDERECO")
     private String numero;
     @Column(name = "COMPLEMENTO_ENDERECO")
     private String complemento;

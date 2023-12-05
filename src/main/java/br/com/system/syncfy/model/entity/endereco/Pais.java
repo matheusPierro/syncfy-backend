@@ -12,7 +12,7 @@ public class Pais {
     @SequenceGenerator(name = "SQ_PAIS", sequenceName = "SQ_PAIS", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_PAIS")
     private Long codPais;
-    @Column(name = "NM_PAIS", nullable = false)
+    @Column(name = "NOME_PAIS", nullable = false)
     private String nome;
 
     public Pais() {

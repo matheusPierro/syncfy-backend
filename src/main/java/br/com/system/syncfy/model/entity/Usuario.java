@@ -11,7 +11,7 @@ public class Usuario {
     @SequenceGenerator(name = "SQ_USER", sequenceName = "SQ_USER", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_USER")
     private Long codUser;
-    @Column(name = "NM_USUARIO", nullable = false)
+    @Column(name = "NOME_USUARIO", nullable = false)
     private String nome;
     @Column(name = "SENHA_USUARIO", nullable = false)
     private String senha;

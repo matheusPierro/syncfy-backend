@@ -6,7 +6,9 @@ import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@Table(name = "PEDIDO")
+@Table(name = "PEDIDO", uniqueConstraints = {
+        @UniqueConstraint(name = "UK_PEDIDO_NUMERO", columnNames = {"NR_PEDIDO"})
+})
 @Entity
 public class Pedido {
 
@@ -15,17 +17,17 @@ public class Pedido {
     @SequenceGenerator(name = "SQ_PEDIDO", sequenceName = "SQ_PEDIDO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_PEDIDO")
     private Long codPedido;
-    @Column(name = "DT_CRIACAO_PEDIDO", nullable = false)
+    @Column(name = "DATA_CRIACAO_PEDIDO", nullable = false)
     private LocalDate dataCriacao;
-    @Column(name = "DT_ATUALIZACAO_PEDIDO")
+    @Column(name = "DATA_ATUALIZACAO_PEDIDO")
     private LocalDate dataAtualizacao;
     @Column(name = "PRECO_TOTAL_PEDIDO", nullable = false)
     private BigDecimal precoTotal;
-    @Column(name = "DT_ENTREGA_PEDIDO", nullable = false)
+    @Column(name = "DATA_ENTREGA_PEDIDO", nullable = false)
     private LocalDate dataEntrega;
-    @Column(name = "NR_PEDIDO", nullable = false)
+    @Column(name = "NUMERO_PEDIDO", nullable = false)
     private Long numeroPedido;
-    @Column(name = "DESC_PEDIDO")
+    @Column(name = "DESCRICAO_PEDIDO")
     private String descricao;
 
     // FKS

@@ -13,7 +13,7 @@ public class Bairro {
     @Column(name = "COD_BAIRRO")
     private Long codBairro;
 
-    @Column(name = "NM_BAIRRO", nullable = false)
+    @Column(name = "NOME_BAIRRO", nullable = false)
     private String nome;
 
     // FKS

@@ -4,7 +4,9 @@ import br.com.system.syncfy.model.entity.endereco.Endereco;
 import br.com.system.syncfy.model.entity.Usuario;
 import jakarta.persistence.*;
 
-@Table(name = "PESSOA")
+@Table(name = "PESSOA", uniqueConstraints = {
+        @UniqueConstraint(name = "UK_PESSOA_EMAIL", columnNames = {"EMAIL"})
+})
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "TIPO")
@@ -15,7 +17,7 @@ public class Pessoa {
     @SequenceGenerator(name = "SQ_PESSOA", sequenceName = "SQ_PESSOA", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_PESSOA")
     private Long codPessoa;
-    @Column(name = "NM_PESSOA", nullable = false)
+    @Column(name = "NOME_PESSOA", nullable = false)
     private String nome;
     @Column(name = "EMAIL", nullable = false)
     private String email;

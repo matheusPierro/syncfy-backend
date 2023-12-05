@@ -12,7 +12,7 @@ public class Cidade {
     @SequenceGenerator(name = "SQ_CIDADE", sequenceName = "SQ_CIDADE", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_CIDADE")
     private Long codCidade;
-    @Column(name = "NM_CIDADE", nullable = false)
+    @Column(name = "NOME_CIDADE", nullable = false)
     private String nome;
     @Column(name = "COD_IBGE_CIDADE", nullable = false)
     private Long codIbge;

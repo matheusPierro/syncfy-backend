@@ -11,7 +11,7 @@ public class Categoria {
     @SequenceGenerator(name = "SQ_CATEGORIA", sequenceName = "SQ_CATEGORIA", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_CATEGORIA")
     private Long codCategoria;
-    @Column(name = "NM_CATEGORIA", nullable = false)
+    @Column(name = "NOME_CATEGORIA", nullable = false)
     private String nome;
 
     public Categoria() {
