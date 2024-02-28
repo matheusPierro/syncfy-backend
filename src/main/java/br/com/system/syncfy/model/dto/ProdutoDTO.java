@@ -1,6 +1,6 @@
 package br.com.system.syncfy.model.dto;
 
-import br.com.system.syncfy.model.dto.endereco.CategoriaDTO;
+import br.com.system.syncfy.model.entity.Produto;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 
@@ -22,4 +22,14 @@ public record ProdutoDTO(
         @Valid
         CategoriaDTO categoria
 ) {
+
+        public ProdutoDTO(Produto produto){
+                this(
+                        produto.getValorUnitario(),
+                        produto.getNome(),
+                        produto.getDescricao(),
+                        produto.getSku(),
+                        new CategoriaDTO(produto.getCategoria().getNome())
+                );
+        }
 }

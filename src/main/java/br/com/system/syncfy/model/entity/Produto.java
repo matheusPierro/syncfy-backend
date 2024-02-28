@@ -41,10 +41,6 @@ public class Produto {
         this.categoria = categoria;
     }
 
-    public Long getCodProduto() {
-        return codProduto;
-    }
-
     public Produto setCodProduto(Long codProduto) {
         this.codProduto = codProduto;
         return this;
@@ -84,6 +80,10 @@ public class Produto {
     public Produto setSku(String sku) {
         this.sku = sku;
         return this;
+    }
+
+    public Long getCodProduto() {
+        return codProduto;
     }
 
     public Categoria getCategoria() {
