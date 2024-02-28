@@ -82,15 +82,14 @@ public class Pedido {
         this.pessoaJuridica = pessoaJuridica;
         this.produtos = produtos;
     }
-    //entrada
+
     public Pedido(NewPedidoDTO dados) {
-        this.codPedido = codPedido;
-        this.dataCriacao = dataCriacao;
-        this.dataAtualizacao = dataAtualizacao;
-        this.precoTotal = precoTotal;
-        this.dataEntrega = dataEntrega;
-        this.numeroPedido = numeroPedido;
-        this.descricao = descricao;
+        this.dataCriacao = dados.dataCriacao();
+        this.dataAtualizacao = dados.dataAtualizacao();
+        this.dataEntrega = dados.dataEntrega();
+        this.numeroPedido = dados.numeroPedido();
+        this.descricao = dados.descricao();
+        this.precoTotal = dados.precoTotal();
         this.frete = frete;
         this.pessoaJuridica = pessoaJuridica;
         this.produtos = produtos;

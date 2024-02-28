@@ -22,7 +22,7 @@ public class PedidoController {
     @Autowired
     private  PedidoRepository pedidoRepository;
 
-    @GetMapping("/pedidos")
+    @GetMapping("/all")
     public Page<PedidoDTO> listar(@PageableDefault() Pageable paginacao) {
         return pedidoRepository.findAll(paginacao).map(PedidoDTO::new);
     }
@@ -32,6 +32,7 @@ public class PedidoController {
     public ResponseEntity<Void> cadastrar(@RequestBody @Valid NewPedidoDTO dados) {
         Pedido pedido = new Pedido(dados);
         pedidoRepository.save(pedido);
+        System.out.println(pedido);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
