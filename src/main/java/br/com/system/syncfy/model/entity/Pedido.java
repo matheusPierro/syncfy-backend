@@ -1,5 +1,7 @@
 package br.com.system.syncfy.model.entity;
 
+import br.com.system.syncfy.model.dto.PedidoDTO;
+import br.com.system.syncfy.model.dto.NewPedidoDTO;
 import br.com.system.syncfy.model.entity.pessoa.PessoaJuridica;
 import jakarta.persistence.*;
 
@@ -69,6 +71,19 @@ public class Pedido {
     }
 
     public Pedido(Long codPedido, LocalDate dataCriacao, LocalDate dataAtualizacao, BigDecimal precoTotal, LocalDate dataEntrega, Long numeroPedido, String descricao, Frete frete, PessoaJuridica pessoaJuridica, Set<Produto> produtos) {
+        this.codPedido = codPedido;
+        this.dataCriacao = dataCriacao;
+        this.dataAtualizacao = dataAtualizacao;
+        this.precoTotal = precoTotal;
+        this.dataEntrega = dataEntrega;
+        this.numeroPedido = numeroPedido;
+        this.descricao = descricao;
+        this.frete = frete;
+        this.pessoaJuridica = pessoaJuridica;
+        this.produtos = produtos;
+    }
+    //entrada
+    public Pedido(NewPedidoDTO dados) {
         this.codPedido = codPedido;
         this.dataCriacao = dataCriacao;
         this.dataAtualizacao = dataAtualizacao;
@@ -185,5 +200,24 @@ public class Pedido {
                 ", pessoaJuridica=" + pessoaJuridica +
                 ", produtos=" + produtos +
                 '}';
+    }
+    public void atualizar(PedidoDTO dados) {
+        this.setCodPedido(dados.numeroPedido());
+        this.setDataCriacao(dados.dataCriacao());
+        this.setDataAtualizacao(dados.dataAtualizacao());
+        this.setPrecoTotal(dados.precoTotal());
+        this.setDataEntrega(dados.dataEntrega());
+        this.setNumeroPedido(dados.numeroPedido());
+        this.setDescricao(dados.descricao());
+    }
+
+    public void excluir() {
+        this.setCodPedido(null);
+        this.setDataCriacao(null);
+        this.setDataAtualizacao(null);
+        this.setPrecoTotal(null);
+        this.setDataEntrega(null);
+        this.setNumeroPedido(null);
+        this.setDescricao(null);
     }
 }

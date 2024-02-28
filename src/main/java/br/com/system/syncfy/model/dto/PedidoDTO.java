@@ -1,6 +1,6 @@
 package br.com.system.syncfy.model.dto;
 
-import br.com.system.syncfy.model.dto.pessoa.PessoaJuridicaDTO;
+import br.com.system.syncfy.model.entity.Pedido;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
@@ -22,16 +22,18 @@ public record PedidoDTO(
         Long numeroPedido,
 
         @NotBlank(message = "A descrição não pode estar em branco.")
-        String descricao,
+        String descricao
 
-        @NotNull
-        FreteDTO frete,
-
-        @NotNull
-        PessoaJuridicaDTO pj,
-
-        @NotNull
-        ProdutoDTO produto
 
 ) {
+        public PedidoDTO(Pedido pedido){
+                this(
+                        pedido.getDataCriacao(),
+                        pedido.getDataAtualizacao(),
+                        pedido.getPrecoTotal(),
+                        pedido.getDataEntrega(),
+                        pedido.getNumeroPedido(),
+                        pedido.getDescricao()
+                );
+        }
 }
