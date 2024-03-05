@@ -4,6 +4,7 @@ import br.com.system.syncfy.model.dto.pessoa.NewPessoaJuridicaDTO;
 import br.com.system.syncfy.model.dto.pessoa.PessoaJuridicaDTO;
 import br.com.system.syncfy.model.entity.Segmento;
 import br.com.system.syncfy.model.entity.Usuario;
+import br.com.system.syncfy.model.entity.endereco.Endereco;
 import jakarta.persistence.*;
 
 @Table(name = "PESSOA_JURIDICA", uniqueConstraints = {
@@ -26,6 +27,12 @@ public class PessoaJuridica extends Pessoa {
     public PessoaJuridica() {
     }
 
+    public PessoaJuridica(String cnpj, String tipo, Segmento segmento) {
+        this.cnpj = cnpj;
+        this.tipo = tipo;
+        this.segmento = segmento;
+    }
+
     public PessoaJuridica(Long codPessoa, String nome, String email, boolean softDelete, Usuario usuario, String cnpj, String tipo, Segmento segmento) {
         super(codPessoa, nome, email, softDelete, usuario);
         this.cnpj = cnpj;
@@ -33,19 +40,12 @@ public class PessoaJuridica extends Pessoa {
         this.segmento = segmento;
     }
 
-    //entrada
-    public PessoaJuridica(NewPessoaJuridicaDTO dados) {
-        super(dados.nome(), dados.email(), dados.softDelete(), dados.usuario());
-        this.cnpj = dados.cnpj();
-        this.tipo = dados.tipo();
-        this.segmento = dados.segmento();
+    public PessoaJuridica(String nome, String email, boolean softDelete, Usuario usuario, String cnpj, String tipo, Segmento segmento) {
+        super(nome, email, softDelete, usuario);
+        this.cnpj = cnpj;
+        this.tipo = tipo;
+        this.segmento = segmento;
     }
-
-
-    //saida
-//    public PessoaJuridica(PessoaJuridicaDTO dados) {
-//
-//    }
 
     public String getCnpj() {
         return cnpj;

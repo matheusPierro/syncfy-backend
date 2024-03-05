@@ -32,10 +32,8 @@ public class PessoaJuridicaController {
     @PostMapping
     @Transactional
     public ResponseEntity<Void> cadastrar(@RequestBody @Valid NewPessoaJuridicaDTO dados) {
-        PessoaJuridica pessoaJuridica = new PessoaJuridica(dados);
-         pessoaJuridicaRepository.save(pessoaJuridica);
-        System.out.println(pessoaJuridica);
-
+        var pj = NewPessoaJuridicaDTO.of(dados);
+        PessoaJuridica pjSaved = pessoaJuridicaRepository.save(pj);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 

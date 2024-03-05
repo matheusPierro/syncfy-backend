@@ -1,4 +1,4 @@
-package br.com.system.syncfy.model.dto;
+package br.com.system.syncfy.model.dto.frete;
 
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;

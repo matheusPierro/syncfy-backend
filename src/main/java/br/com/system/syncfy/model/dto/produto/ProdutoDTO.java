@@ -1,5 +1,6 @@
-package br.com.system.syncfy.model.dto;
+package br.com.system.syncfy.model.dto.produto;
 
+import br.com.system.syncfy.model.dto.categoria.CategoriaDTO;
 import br.com.system.syncfy.model.entity.Produto;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;

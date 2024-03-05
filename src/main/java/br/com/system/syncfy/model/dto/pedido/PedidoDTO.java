@@ -1,4 +1,4 @@
-package br.com.system.syncfy.model.dto;
+package br.com.system.syncfy.model.dto.pedido;
 
 import br.com.system.syncfy.model.entity.Pedido;
 import jakarta.validation.constraints.NotBlank;

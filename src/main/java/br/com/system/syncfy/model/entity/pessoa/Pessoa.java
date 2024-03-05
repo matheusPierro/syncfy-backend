@@ -1,6 +1,7 @@
 package br.com.system.syncfy.model.entity.pessoa;
 
 import br.com.system.syncfy.model.dto.pessoa.PessoaJuridicaDTO;
+import br.com.system.syncfy.model.dto.usuario.NewUsuarioDTO;
 import br.com.system.syncfy.model.entity.endereco.Endereco;
 import br.com.system.syncfy.model.entity.Usuario;
 import jakarta.persistence.*;
@@ -41,11 +42,7 @@ public class Pessoa {
         this.usuario = usuario;
     }
 
-    public Pessoa(String nome, String email, boolean softDelete, Usuario usuario) {
-        this.nome = nome;
-        this.email = email;
-        this.softDelete = softDelete;
-        this.usuario = usuario;
+    public Pessoa(String nome, String email, boolean b, Usuario usuario) {
     }
 
     public Long getCodPessoa() {

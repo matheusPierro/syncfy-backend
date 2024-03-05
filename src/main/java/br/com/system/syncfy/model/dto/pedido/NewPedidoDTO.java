@@ -1,5 +1,6 @@
-package br.com.system.syncfy.model.dto;
+package br.com.system.syncfy.model.dto.pedido;
 
+import br.com.system.syncfy.model.dto.frete.FreteDTO;
 import br.com.system.syncfy.model.dto.pessoa.PessoaJuridicaDTO;
 
 import java.math.BigDecimal;

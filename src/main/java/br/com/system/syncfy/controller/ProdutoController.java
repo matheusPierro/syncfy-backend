@@ -1,6 +1,6 @@
 package br.com.system.syncfy.controller;
 
-import br.com.system.syncfy.model.dto.ProdutoDTO;
+import br.com.system.syncfy.model.dto.produto.ProdutoDTO;
 import br.com.system.syncfy.model.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;

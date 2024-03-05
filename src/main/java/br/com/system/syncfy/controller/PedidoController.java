@@ -1,7 +1,7 @@
 package br.com.system.syncfy.controller;
 
-import br.com.system.syncfy.model.dto.PedidoDTO;
-import br.com.system.syncfy.model.dto.NewPedidoDTO;
+import br.com.system.syncfy.model.dto.pedido.PedidoDTO;
+import br.com.system.syncfy.model.dto.pedido.NewPedidoDTO;
 import br.com.system.syncfy.model.entity.Pedido;
 import br.com.system.syncfy.model.repository.PedidoRepository;
 import jakarta.validation.Valid;
