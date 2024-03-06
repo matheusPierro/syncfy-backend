@@ -7,6 +7,8 @@ import br.com.system.syncfy.model.entity.Usuario;
 import br.com.system.syncfy.model.entity.endereco.Endereco;
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Table(name = "PESSOA_JURIDICA", uniqueConstraints = {
         @UniqueConstraint(name = "UK_PJ_CNPJ", columnNames = {"CNPJ"})
 })
@@ -33,15 +35,15 @@ public class PessoaJuridica extends Pessoa {
         this.segmento = segmento;
     }
 
-    public PessoaJuridica(Long codPessoa, String nome, String email, boolean softDelete, Usuario usuario, String cnpj, String tipo, Segmento segmento) {
-        super(codPessoa, nome, email, softDelete, usuario);
+    public PessoaJuridica(Long codPessoa, String nome, String email, boolean softDelete, Usuario usuario, Set<Endereco> enderecos, String cnpj, String tipo, Segmento segmento) {
+        super(codPessoa, nome, email, softDelete, usuario, enderecos);
         this.cnpj = cnpj;
         this.tipo = tipo;
         this.segmento = segmento;
     }
 
-    public PessoaJuridica(String nome, String email, boolean softDelete, Usuario usuario, String cnpj, String tipo, Segmento segmento) {
-        super(nome, email, softDelete, usuario);
+    public PessoaJuridica(String nome, String email, boolean b, Usuario usuario, String cnpj, String tipo, Segmento segmento) {
+        super(nome, email, b, usuario);
         this.cnpj = cnpj;
         this.tipo = tipo;
         this.segmento = segmento;

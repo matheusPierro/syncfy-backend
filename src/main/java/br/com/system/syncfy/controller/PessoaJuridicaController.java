@@ -33,6 +33,7 @@ public class PessoaJuridicaController {
     @Transactional
     public ResponseEntity<Void> cadastrar(@RequestBody @Valid NewPessoaJuridicaDTO dados) {
         var pj = NewPessoaJuridicaDTO.of(dados);
+        System.out.println(pj);
         PessoaJuridica pjSaved = pessoaJuridicaRepository.save(pj);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }

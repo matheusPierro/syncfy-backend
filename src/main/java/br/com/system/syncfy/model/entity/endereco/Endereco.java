@@ -10,6 +10,11 @@ import jakarta.persistence.*;
 public class Endereco {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_ENDERECO")
+    @SequenceGenerator(name = "SQ_ENDERECO", sequenceName = "SQ_ENDERECO", allocationSize = 1, initialValue = 1)
+    @Column(name = "COD_ENDERECO")
+    private Long codEndereco;
+
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
     @JoinColumn(
             name = "PESSOA",
@@ -38,7 +43,8 @@ public class Endereco {
     public Endereco() {
     }
 
-    public Endereco(Pessoa pessoa, String cep, String logradouro, String numero, String complemento, Bairro bairro) {
+    public Endereco(Long codEndereco, Pessoa pessoa, String cep, String logradouro, String numero, String complemento, Bairro bairro) {
+        this.codEndereco = codEndereco;
         this.pessoa = pessoa;
         this.cep = cep;
         this.logradouro = logradouro;
@@ -92,10 +98,25 @@ public class Endereco {
         return this;
     }
 
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+    }
+
+    public Long getCodEndereco() {
+        return codEndereco;
+    }
+
+    public void setCodEndereco(Long codEndereco) {
+        this.codEndereco = codEndereco;
+    }
+
     @Override
     public String toString() {
         return "Endereco{" +
-                "pessoa=" + pessoa +
                 ", cep='" + cep + '\'' +
                 ", logradouro='" + logradouro + '\'' +
                 ", numero='" + numero + '\'' +

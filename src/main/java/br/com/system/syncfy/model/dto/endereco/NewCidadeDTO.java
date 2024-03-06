@@ -1,10 +1,9 @@
 package br.com.system.syncfy.model.dto.endereco;
 
-import jakarta.validation.constraints.Pattern;
+import jakarta.validation.Valid;
 
 public record NewCidadeDTO(
-        //        @NotBlank(message = "O nome da cidade não pode estar em branco.")
-        @Pattern(regexp = "[a-zA-Z]+")
+//        @NotBlank(message = "O nome da cidade não pode estar em branco.")
         String nome,
 
         Long codIbge,
