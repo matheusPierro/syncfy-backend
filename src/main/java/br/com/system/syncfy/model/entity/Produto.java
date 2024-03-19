@@ -1,5 +1,7 @@
 package br.com.system.syncfy.model.entity;
 
+import br.com.system.syncfy.model.dto.produto.NewProdutoDTO;
+import br.com.system.syncfy.model.dto.produto.ProdutoDTO;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -15,12 +17,16 @@ public class Produto {
     @SequenceGenerator(name = "SQ_PRODUTO", sequenceName = "SQ_PRODUTO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_PRODUTO")
     private Long codProduto;
+
     @Column(name = "VALOR_UNITARIO_PRODUTO", nullable = false)
     private BigDecimal valorUnitario;
+
     @Column(name = "NOME_PRODUTO", nullable = false)
     private String nome;
+
     @Column(name = "DESCRICAO_PRODUTO")
     private String descricao;
+
     @Column(name = "SKU_PRODUTO", nullable = false)
     private String sku;
 
@@ -32,13 +38,11 @@ public class Produto {
     public Produto() {
     }
 
-    public Produto(Long codProduto, BigDecimal valorUnitario, String nome, String descricao, String sku, Categoria categoria) {
-        this.codProduto = codProduto;
-        this.valorUnitario = valorUnitario;
-        this.nome = nome;
-        this.descricao = descricao;
-        this.sku = sku;
-        this.categoria = categoria;
+    public Produto(NewProdutoDTO dados) {
+        this.valorUnitario = dados.valorUnitario();
+        this.nome = dados.nome();
+        this.descricao = dados.descricao();
+        this.sku = dados.sku();
     }
 
     public Produto setCodProduto(Long codProduto) {
@@ -106,4 +110,14 @@ public class Produto {
                 ", categoria=" + categoria +
                 '}';
     }
+
+    public void atualizar(ProdutoDTO dados) {
+        this.setCodProduto(dados.codProduto());
+        this.setCategoria(dados.categoria());
+        this.setDescricao(dados.descricao());
+        this.setNome(dados.nome());
+        this.setSku(dados.sku());
+        this.setValorUnitario(dados.valorUnitario());
+    }
+
 }

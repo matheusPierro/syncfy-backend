@@ -1,6 +1,7 @@
 package br.com.system.syncfy.model.dto.produto;
 
 import br.com.system.syncfy.model.dto.categoria.CategoriaDTO;
+import br.com.system.syncfy.model.entity.Categoria;
 import br.com.system.syncfy.model.entity.Produto;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
@@ -8,6 +9,8 @@ import jakarta.validation.constraints.*;
 import java.math.BigDecimal;
 
 public record ProdutoDTO(
+
+        long codProduto,
         @NotNull(message = "O valor unitário não pode ser nulo.")
         BigDecimal valorUnitario,
 
@@ -20,17 +23,18 @@ public record ProdutoDTO(
         @NotBlank(message = "O SKU não pode estar em branco.")
         String sku,
 
-        @Valid
-        CategoriaDTO categoria
+
+        Categoria categoria
 ) {
 
         public ProdutoDTO(Produto produto){
                 this(
+                        produto.getCodProduto(),
                         produto.getValorUnitario(),
                         produto.getNome(),
                         produto.getDescricao(),
                         produto.getSku(),
-                        new CategoriaDTO(produto.getCategoria().getNome())
+                        produto.getCategoria()
                 );
         }
 }

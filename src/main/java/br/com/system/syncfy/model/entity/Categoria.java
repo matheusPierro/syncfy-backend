@@ -1,5 +1,9 @@
 package br.com.system.syncfy.model.entity;
 
+import br.com.system.syncfy.model.dto.categoria.CategoriaDTO;
+import br.com.system.syncfy.model.dto.categoria.NewCategoriaDTO;
+import br.com.system.syncfy.model.dto.produto.NewProdutoDTO;
+import br.com.system.syncfy.model.dto.produto.ProdutoDTO;
 import jakarta.persistence.*;
 
 @Table(name = "CATEGORIA")
@@ -39,6 +43,9 @@ public class Categoria {
         this.nome = nome;
         return this;
     }
+    public Categoria(NewCategoriaDTO dados) {
+        this.nome = dados.nome();
+    }
 
     @Override
     public String toString() {
@@ -46,5 +53,9 @@ public class Categoria {
                 "codCategoria=" + codCategoria +
                 ", nome='" + nome + '\'' +
                 '}';
+    }
+    public void atualizar(CategoriaDTO dados) {
+        this.codCategoria = dados.codCategoria();
+        this.nome = dados.nome();
     }
 }

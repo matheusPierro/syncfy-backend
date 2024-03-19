@@ -1,4 +1,7 @@
 package br.com.system.syncfy.model.dto.categoria;
 
-public record NewCategoriaDTO() {
-}
+public record NewCategoriaDTO(
+    String nome
+)   {}
+
+
