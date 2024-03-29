@@ -19,6 +19,7 @@ public record PessoaJuridicaDTO(
 
         Segmento segmento
 
+
 ) {
         public PessoaJuridicaDTO(PessoaJuridica pessoaJuridica){
                 this(
