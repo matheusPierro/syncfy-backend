@@ -1,93 +1,104 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Syncfy</title>
-    <link rel="stylesheet" href="css/home.css"/>
-    <link rel="shortcut icon" href="images/logo-branco.jpg">
-</head>
-<body>
-<div id="navlist">
-    <div class="logo">
-        <img src="images/logo.png" alt="Logo"/>
-    </div>
-    <div class="search">
+    <link th:href="@{/css/home.css}" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="navlist">
+      <div class="logo">
+        <img src="images/logo.png" alt="Logo" />
+      </div>
+      <div class="search">
         <form action="#">
-            <input type="text" placeholder="Buscar produtos no Syncfy" name="search" />
+          <input
+            type="text"
+            placeholder="Buscar produtos no Syncfy"
+            name="search"
+          />
         </form>
-    </div>
-    <div class="cart">
+      </div>
+      <div class="cart">
         <span>
-            <img src="images/shopping-cart-icon.png" alt="Carrinho de compras">
+          <img src="images/shopping-cart-icon.png" alt="Carrinho de compras" />
         </span>
+      </div>
     </div>
-</div>
 
-<div id="nomeUsuario">Nome usuario </div>
+    <div id="nomeUsuario">Nome usuario</div>
 
-<div class="green-background"> </div>
-<section class="secao4" id="sobre">
-    <strong class="categoria">Categorias</strong>
-    <div class="secao4-div">
+    <div class="green-background"></div>
+    <section class="secao4" id="sobre">
+      <strong class="categoria">Categorias</strong>
+      <div class="secao4-div">
         <div class="secao4-div-card">
-            <img
-                    decoding="async"
-                    src="images/carousel-games_.png"
-                    alt="Categoria de produtos referente a games"
-            />
-            <b>Área Gamer</b>
-            <p>
-                Explore uma vasta gama de produtos para games, incluindo consoles, jogos, acessórios e muito mais para mergulhar na sua paixão pelos videogames.
-            </p>
+          <img
+            decoding="async"
+            src="images/carousel-games_.png"
+            alt="Categoria de produtos referente a games"
+          />
+          <b>Área Gamer</b>
+          <p>
+            Explore uma vasta gama de produtos para games, incluindo consoles,
+            jogos, acessórios e muito mais para mergulhar na sua paixão pelos
+            videogames.
+          </p>
         </div>
         <div class="secao4-div-card">
-            <img
-                    decoding="async"
-                    src="images/carousel-desktop.png"
-                    alt="Categoria de produtos referente a escritório"
-            />
-            <b>Escritório</b>
-            <p>
-                Descubra uma variedade de produtos essenciais para o seu escritório, desde material de papelaria básico até soluções de organização e mobiliário ergonômico para maximizar a produtividade.
-            </p>
+          <img
+            decoding="async"
+            src="images/carousel-desktop.png"
+            alt="Categoria de produtos referente a escritório"
+          />
+          <b>Escritório</b>
+          <p>
+            Descubra uma variedade de produtos essenciais para o seu escritório,
+            desde material de papelaria básico até soluções de organização e
+            mobiliário ergonômico para maximizar a produtividade.
+          </p>
         </div>
         <div class="secao4-div-card">
-            <img
-                    decoding="async"
-                    src="images/carousel-network.png"
-                    alt="Categoria de produtos referente a acessórios de rede"
-            />
-            <b>Acessórios de Rede</b>
-            <p>
-                Explore uma seleção de acessórios de rede, incluindo roteadores, switches, cabos e adaptadores, para garantir uma conexão estável e rápida em sua casa ou escritório.
-            </p>
+          <img
+            decoding="async"
+            src="images/carousel-network.png"
+            alt="Categoria de produtos referente a acessórios de rede"
+          />
+          <b>Acessórios de Rede</b>
+          <p>
+            Explore uma seleção de acessórios de rede, incluindo roteadores,
+            switches, cabos e adaptadores, para garantir uma conexão estável e
+            rápida em sua casa ou escritório.
+          </p>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<button class="animated-button">
-    <span>Buscar produto</span>
-    <span></span>
-</button>
+    <button class="animated-button">
+      <span>Buscar produto</span>
+      <span></span>
+    </button>
 
-<script>
-    function getNomeUsuario() {
+    <script>
+      function getNomeUsuario() {
         var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) {
-                    document.getElementById("nomeUsuario").innerText = "Nome do Usuário: " + xhr.responseText;
-                } else {
-                    console.error("Erro ao obter o nome do usuário:", xhr.status);
-                    document.getElementById("nomeUsuario").innerText = "Erro ao obter o nome do usuário.";
-                }
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+              document.getElementById("nomeUsuario").innerText =
+                "Nome do Usuário: " + xhr.responseText;
+            } else {
+              console.error("Erro ao obter o nome do usuário:", xhr.status);
+              document.getElementById("nomeUsuario").innerText =
+                "Erro ao obter o nome do usuário.";
             }
+          }
         };
         xhr.open("GET", "/api/usuario", true);
         xhr.send();
-    }
-    getNomeUsuario();
-</script>
-</body>
+      }
+      getNomeUsuario();
+    </script>
+  </body>
 </html>
